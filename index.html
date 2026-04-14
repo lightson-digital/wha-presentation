@@ -409,7 +409,7 @@
 
   /* ── Responsive: Tablet (≤1024px) ── */
   @media (max-width: 1024px) {
-    .slide { padding: 48px 40px; }
+    .slide { padding: 48px 40px 80px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .slide-title { font-size: 42px; margin-bottom: 28px; }
     .slide-subtitle { font-size: 22px; }
     .calc-wrap { gap: 28px; }
@@ -429,7 +429,12 @@
 
   /* ── Responsive: Mobile (≤640px) ── */
   @media (max-width: 640px) {
-    .slide { padding: 32px 20px; }
+    .slide {
+      padding: 32px 20px 80px;
+      justify-content: flex-start;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     .slide-title { font-size: 28px; letter-spacing: -0.8px; margin-bottom: 20px; }
     .slide-subtitle { font-size: 18px; }
     .calc-wrap { grid-template-columns: 1fr; gap: 20px; }
