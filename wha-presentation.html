@@ -401,130 +401,104 @@
   }
   /* ── One-Pager ── */
   .one-pager {
-    max-width: 800px; width: 100%; text-align: left;
+    max-width: 720px; width: 100%; text-align: left;
     padding: 10px 0;
   }
   .op-header {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   .op-badge {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--accent);
     border: 1px solid rgba(83,58,253,0.3); border-radius: 4px;
-    padding: 3px 10px;
+    padding: 4px 12px;
   }
   .op-title {
-    font-size: 28px; font-weight: 300; color: var(--heading);
-    line-height: 1.15; letter-spacing: -0.56px; margin-bottom: 4px;
+    font-size: 32px; font-weight: 300; color: var(--heading);
+    line-height: 1.15; letter-spacing: -0.64px; margin-bottom: 4px;
   }
   .op-subtitle {
-    font-size: 14px; font-weight: 400; color: var(--dim);
-    margin-bottom: 18px;
+    font-size: 16px; font-weight: 400; color: var(--dim);
+    margin-bottom: 20px;
   }
   .one-pager h2 {
-    font-size: 15px; font-weight: 600; color: var(--heading);
-    margin-bottom: 4px;
+    font-size: 18px; font-weight: 500; color: var(--heading);
+    margin-bottom: 8px;
   }
   .one-pager p {
-    font-size: 12px; color: var(--body); line-height: 1.55; margin-bottom: 6px;
+    font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 8px;
   }
-  .op-section { margin-bottom: 14px; }
+  .op-section { margin-bottom: 16px; }
+  .op-divider {
+    height: 1px; background: var(--border); margin: 20px 0;
+  }
   .op-case {
-    margin-bottom: 14px; padding: 14px 16px;
-    background: rgba(83,58,253,0.03); border: 1px solid rgba(83,58,253,0.1);
-    border-radius: 6px;
+    display: grid; grid-template-columns: auto 1fr; gap: 24px;
+    align-items: center;
   }
-  .op-findings {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3px 16px; margin-top: 8px;
+  .op-case-num {
+    font-size: 56px; font-weight: 300; color: var(--accent);
+    letter-spacing: -1.1px; font-feature-settings: "tnum";
+    line-height: 1;
   }
-  .op-finding {
-    font-size: 11px; color: var(--body); line-height: 1.45;
+  .op-case-context {
+    font-size: 15px; color: var(--body); line-height: 1.55;
   }
-  .op-finding strong {
-    color: var(--heading); font-weight: 600; font-size: 11px;
-  }
-  .op-result {
-    font-size: 16px; font-weight: 400; color: var(--accent);
-    margin-top: 10px; padding-top: 10px;
-    border-top: 1px solid rgba(83,58,253,0.15);
-  }
-  .op-journey {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
-    margin-top: 8px;
-  }
-  .op-stage {
-    display: flex; flex-direction: column; gap: 2px;
-    padding: 8px; border: 1px solid var(--border); border-radius: 4px;
-    background: var(--pure-white);
-  }
-  .op-stage strong { font-size: 11px; color: var(--heading); }
-  .op-stage span { font-size: 10px; color: var(--dim); line-height: 1.35; }
-  .op-workshop { margin-bottom: 14px; }
+  .op-case-context strong { color: var(--heading); }
+  .op-workshop { margin-bottom: 0; }
   .op-sessions {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    margin: 8px 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin: 14px 0;
   }
   .op-session {
     border: 1px solid var(--border); border-radius: 6px;
-    padding: 10px; background: var(--pure-white);
+    padding: 14px; background: var(--pure-white);
   }
   .op-session-label {
-    font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 2px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
   }
-  .op-session-title { font-size: 13px; font-weight: 500; color: var(--heading); margin-bottom: 2px; }
-  .op-session-desc { font-size: 11px; color: var(--dim); line-height: 1.4; }
+  .op-session-title { font-size: 15px; font-weight: 500; color: var(--heading); margin-bottom: 3px; }
+  .op-session-desc { font-size: 13px; color: var(--dim); line-height: 1.45; }
   .op-price {
-    display: flex; align-items: baseline; gap: 10px; margin-top: 8px;
+    display: flex; align-items: baseline; gap: 12px; margin-top: 14px;
   }
   .op-price-new {
-    font-size: 22px; font-weight: 300; color: var(--heading);
+    font-size: 28px; font-weight: 300; color: var(--heading);
     font-feature-settings: "tnum";
   }
   .op-price-old {
-    font-size: 13px; color: var(--dim); text-decoration: line-through;
+    font-size: 15px; color: var(--dim); text-decoration: line-through;
   }
   .op-price-badge {
     background: var(--green); color: #fff; border-radius: 3px;
-    padding: 2px 6px; font-size: 10px; font-weight: 600;
+    padding: 3px 8px; font-size: 11px; font-weight: 600;
   }
-  .op-paths { margin-bottom: 14px; }
-  .op-path-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    margin-top: 8px;
-  }
-  .op-path {
-    border: 1px solid var(--border); border-radius: 6px;
-    padding: 10px; background: var(--pure-white);
-  }
-  .op-path-title { font-size: 13px; font-weight: 500; color: var(--heading); margin-bottom: 2px; }
-  .op-path-desc { font-size: 11px; color: var(--body); line-height: 1.4; }
-  .op-about { margin-bottom: 14px; }
-  .op-stats {
-    display: flex; gap: 16px; margin-top: 4px;
-    font-size: 11px; color: var(--dim);
+  .op-guarantee {
+    font-size: 14px; color: var(--dim); margin-top: 8px; font-style: italic;
   }
   .op-cta {
-    margin-bottom: 12px; padding: 14px 16px;
-    border: 1px solid var(--border); border-radius: 6px;
+    padding: 20px 24px;
+    border: 1px solid var(--border); border-radius: 8px;
     background: var(--pure-white);
-    display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+    display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
   }
-  .op-cta h2 { margin-bottom: 2px; }
-  .op-contact { margin-top: 6px; font-size: 12px; color: var(--heading); }
+  .op-cta h2 { margin-bottom: 4px; }
+  .op-contact { margin-top: 6px; font-size: 15px; color: var(--heading); }
+  .op-meta {
+    font-size: 13px; color: var(--dim); margin-top: 8px; line-height: 1.45;
+  }
   .op-qr {
-    width: 100px; height: 100px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .op-qr img {
+    width: 110px; height: 110px;
     border: 1px solid var(--border); border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 10px; color: var(--dim); text-align: center;
-    padding: 8px;
   }
-  .op-footer {
-    padding-top: 10px; border-top: 1px solid var(--border);
-    font-size: 11px; color: var(--dim);
+  .op-qr-label {
+    font-size: 11px; color: var(--dim); font-weight: 500;
   }
-  .op-footer em { font-style: normal; font-family: var(--font-mono); font-size: 10px; }
 
   /* ── Print Styles ── */
   @media print {
@@ -538,7 +512,7 @@
     }
     .one-pager { max-width: 100%; }
     .op-case { break-inside: avoid; }
-    .op-sessions, .op-path-grid { break-inside: avoid; }
+    .op-sessions { break-inside: avoid; }
   }
 
   /* ── Reduced Motion ── */
@@ -566,9 +540,8 @@
     .cover-promise { font-size: 28px; }
     .cover-logos { gap: 32px; }
     .discipline-cards.cols-5 { grid-template-columns: repeat(3, 1fr); }
-    .op-journey { grid-template-columns: repeat(3, 1fr); }
     .op-sessions { grid-template-columns: 1fr; }
-    .op-path-grid { grid-template-columns: 1fr; }
+    .op-case { grid-template-columns: 1fr; }
     .notes-panel { width: 280px; }
   }
 
@@ -604,9 +577,10 @@
     .product-price { font-size: 28px; }
     .offer-grid { grid-template-columns: 1fr; }
     .op-title { font-size: 24px; }
-    .op-journey { grid-template-columns: 1fr; }
-    .op-stats { flex-direction: column; gap: 4px; }
-    .op-finding strong { width: auto; display: block; }
+    .op-case { grid-template-columns: 1fr; text-align: center; }
+    .op-case-num { font-size: 42px; }
+    .op-cta { grid-template-columns: 1fr; text-align: center; }
+    .op-qr { margin-top: 12px; }
     .path-cards { grid-template-columns: 1fr; }
     .prompt-block { padding: 24px 20px; font-size: 14px; }
     .ai-links { flex-wrap: wrap; gap: 12px; }
@@ -931,7 +905,7 @@
   <div class="slide" data-slide="9" style="justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:120px">
     <div class="one-pager">
       <div class="op-header">
-        <img src="logo.png" alt="Lights On Digital" style="height:36px;filter:invert(1)">
+        <img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)">
         <div class="op-badge">WHA Members</div>
       </div>
 
@@ -939,55 +913,34 @@
       <p class="op-subtitle">Revenue Growth Workshop</p>
 
       <div class="op-section">
-        <h2>You Know the Feeling</h2>
-        <p>Occupancy looks okay but revenue isn't growing. OTAs take a bigger slice every year. You're too busy running the hotel to figure out where the leaks are — rates, marketing, channels, your website. You know something's off, but there's no time to dig into it.</p>
-        <p>Most independent hotels leave 5-10% of their revenue sitting there. Not because of a bad hotel — because of fixable gaps nobody's looking at.</p>
+        <p>Occupancy looks okay but revenue isn't growing. OTAs take a bigger slice every year. You know something's off, but there's no time to dig into it. The fix isn't one silver bullet — it's a dozen lead bullets. Small things that compound: an invisible Google listing, stale rates, unanswered reviews, a dormant email list. We've seen this pattern across 40+ hotels in six states.</p>
       </div>
 
-      <div class="op-section">
-        <h2>No Silver Bullet. A Dozen Lead Bullets.</h2>
-        <p>The fix isn't one big thing. It's ten small things that compound: a Google Hotels listing that's invisible, OTAs undercutting your direct rate, 1,100 guest reviews with zero responses, a mobile booking page that's broken, an email list sitting dormant.</p>
-      </div>
+      <div class="op-divider"></div>
 
       <div class="op-case">
-        <h2>How a 36-Room Florida Hotel Found $418K</h2>
-        <p>Revenue behind prior year. Owner focused on day-to-day operations — no time or know-how to manage rates and marketing. We walked through five stages of the guest journey and found gaps in every one:</p>
-        <div class="op-findings">
-          <div class="op-finding"><strong>Discover</strong> No one could find them online. Zero paid advertising.</div>
-          <div class="op-finding"><strong>Book</strong> Stale rates. OTAs winning every booking.</div>
-          <div class="op-finding"><strong>Arrival</strong> No upsell packages. No guest email capture.</div>
-          <div class="op-finding"><strong>Stay</strong> Guests spending at the bar next door, not at the property.</div>
-          <div class="op-finding"><strong>Reconnect</strong> 30,000-person email list collecting dust.</div>
+        <div class="op-case-num">$418K</div>
+        <div class="op-case-context">
+          <strong>Extra revenue in 60 days. ~10% lift.</strong><br>
+          A 36-room Florida boutique — revenue behind prior year, owner too busy with operations to manage rates and marketing. We found fixable gaps across the guest journey and executed. No renovation. No massive ad budget.
         </div>
-        <p style="margin-top:16px">The fixes: daily rate adjustments, Google Ads, rate matching, guest packages, email reactivation. No renovation. No massive ad budget.</p>
-        <div class="op-result">$418K in extra revenue in 60 days. ~10% lift.</div>
       </div>
 
-      <div class="op-section">
-        <h2>The Guest Journey Framework</h2>
-        <p>We look at every hotel through the same five stages. Every hotel has gaps in at least three.</p>
-        <div class="op-journey">
-          <div class="op-stage"><strong>Discover</strong><span>Are the right guests finding you?</span></div>
-          <div class="op-stage"><strong>Book</strong><span>When they're ready, do they book your hotel?</span></div>
-          <div class="op-stage"><strong>Arrival</strong><span>Are you capturing value before check-in?</span></div>
-          <div class="op-stage"><strong>Stay</strong><span>Are guests leaving as fans?</span></div>
-          <div class="op-stage"><strong>Reconnect</strong><span>Do past guests come back?</span></div>
-        </div>
-      </div>
+      <div class="op-divider"></div>
 
       <div class="op-workshop">
-        <h2>The Workshop</h2>
-        <p>Two focused sessions. You walk away with a real plan.</p>
+        <h2>Revenue Growth Workshop</h2>
+        <p>We walk through every stage of your guest journey — Discover, Book, Arrival, Stay, Reconnect — find the gaps, and build a plan to fix them.</p>
         <div class="op-sessions">
           <div class="op-session">
             <div class="op-session-label">Session 1</div>
             <div class="op-session-title">Guest Journey Review</div>
-            <div class="op-session-desc">Walk through all five stages. Score each one. Find the gaps.</div>
+            <div class="op-session-desc">Score each stage. Find the gaps.</div>
           </div>
           <div class="op-session">
             <div class="op-session-label">Session 2</div>
             <div class="op-session-title">Gap Priorities + Action Plan</div>
-            <div class="op-session-desc">Prioritized 90-day action plan. Quick wins first, then bigger moves.</div>
+            <div class="op-session-desc">Quick wins first, then bigger moves.</div>
           </div>
           <div class="op-session">
             <div class="op-session-label">Deliverable</div>
@@ -1000,52 +953,24 @@
           <span class="op-price-old">$697</span>
           <span class="op-price-badge">WHA 15% OFF</span>
         </div>
+        <p class="op-guarantee">Don't love the plan? Full refund. No questions asked.</p>
       </div>
 
-      <div class="op-paths">
-        <h2>After the Workshop, You Choose</h2>
-        <p style="margin-bottom:6px">You own the plan no matter what. This is a working session, not a report that sits in a drawer.</p>
-        <div class="op-path-grid">
-          <div class="op-path">
-            <div class="op-path-title">Go Execute</div>
-            <div class="op-path-desc">The plan is yours. Take it and run. We'll be cheering you on.</div>
-          </div>
-          <div class="op-path">
-            <div class="op-path-title">We Help You Execute</div>
-            <div class="op-path-desc">Like the plan but want a team behind it? Custom proposal, clear scope and pricing — no surprises.</div>
-          </div>
-          <div class="op-path">
-            <div class="op-path-title">Full Refund</div>
-            <div class="op-path-desc">Don't love the plan? Money back. No questions asked.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="op-about">
-        <h2>About Lights On Digital</h2>
-        <p>We're the revenue and marketing team for independent hotels who don't have one. One team handling rates, marketing, online channels, and your website — instead of 3-4 vendors who never talk to each other.</p>
-        <div class="op-stats">
-          <span>40+ hotel partners</span>
-          <span>$85M annual revenue managed</span>
-          <span>HI · CA · MT · WY · VT · FL</span>
-        </div>
-      </div>
+      <div class="op-divider"></div>
 
       <div class="op-cta">
         <div>
           <h2>Let's Talk About Your Hotel</h2>
-          <p style="margin-bottom:4px">We'd love to hear what's going on at your property — what's working, what's not, and where you want to be.</p>
+          <p style="margin-bottom:4px">We'd love to hear what's going on — what's working, what's not, and where you want to be.</p>
           <div class="op-contact">
-            <strong>kin@lightson.co</strong> · lightson.co · <a href="https://calendly.com/kin-lightson/30min" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;font-weight:500">Schedule a conversation ↗</a>
+            <strong>kin@lightson.co</strong> · lightson.co
           </div>
+          <div class="op-meta">The revenue and marketing team for independent hotels who don't have one. 40+ hotels · $85M revenue managed · HI · CA · MT · WY · VT · FL</div>
         </div>
         <div class="op-qr">
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://calendly.com/kin-lightson/30min" alt="Scan to schedule a conversation" style="width:100%;height:100%;object-fit:contain">
+          <div class="op-qr-label">Scan to schedule</div>
         </div>
-      </div>
-
-      <div class="op-footer">
-        <p style="margin:0">Free tool — Paste into ChatGPT, Claude, or Gemini with any hotel URL: <em>"Check my hotel website using https://github.com/lightson-digital/hotel-website-checkup"</em></p>
       </div>
     </div>
   </div>
