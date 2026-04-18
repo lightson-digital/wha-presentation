@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Revenue Growth Workshop — Lights On Digital</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+/* ============================================================
+   Lights On Digital — Revenue Growth Workshop one-pager
+   US Letter (8.5 × 11"), single side, print-first.
+   ============================================================ */
+
+:root{
+  /* Brand */
+  --blue:          #0A84FF;
+  --blue-deep:     #004C99;
+  --navy:          #061b31;
+  --ink:           #121827;
+  --muted:         #4b5a73;
+  --rule:          #0f2742;
+  --soft-rule:     #c9d4e2;
+  --bg-tint:       #f4f7fb;
+  --black:         #0a0d14;
+  --white:         #fefefd;
+
+  /* Type scale (pt-based for print readability) */
+  --t-eyebrow:     8.5pt;
+  --t-body:        10.5pt;
+  --t-body-lg:     12pt;
+  --t-h3:          14.5pt;
+  --t-h2:          15pt;
+  --t-h1:          23pt;
+
+  /* Case-study stat */
+  --t-stat:        30pt;
+  --stat-weight:   300;
+
+  /* Spacing scale (4pt) */
+  --space-xs:      4px;
+  --space-sm:      8px;
+  --space-md:      12px;
+  --space-lg:      16px;
+  --space-xl:      24px;
+  --space-2xl:     32px;
+}
+
+/* ---------- Reset ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  font-family:"Söhne","Sohne","Neue Haas Grotesk Text","Helvetica Neue","Segoe UI",Arial,sans-serif;
+  font-feature-settings:"ss01","kern","liga";
+  color:var(--ink);
+  background:#e9edf2;
+  -webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+  color-adjust:exact;
+}
+
+/* ---------- The sheet (US Letter) ---------- */
+.sheet{
+  width:8.5in;
+  height:11in;
+  margin:24px auto;
+  background:var(--white);
+  padding:.4in .5in;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 10px 40px rgba(6,27,49,.15);
+  position:relative;
+  overflow:visible;
+}
+
+.tnum{font-feature-settings:"tnum","ss01"}
+
+/* ============================================================
+   1. HEADER
+   ============================================================ */
+.masthead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-xl);
+  padding-bottom:var(--space-md);
+  border-bottom:1.25px solid var(--rule);
+}
+.masthead img{display:block}
+.logo-lod img{height:44px;width:auto}
+.masthead .eyebrow{
+  font-size:var(--t-eyebrow);
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--blue);
+}
+
+/* ============================================================
+   2. HERO
+   ============================================================ */
+.hero{
+  padding:var(--space-md) 0;
+  border-bottom:.75px solid var(--soft-rule);
+}
+.hero h1{
+  font-size:var(--t-h1);
+  font-weight:300;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  color:var(--navy);
+  white-space:nowrap;
+  margin-bottom:var(--space-sm);
+}
+.hero .deck{
+  font-size:17pt;
+  font-weight:400;
+  line-height:1.25;
+  letter-spacing:-.012em;
+  color:var(--navy);
+  margin-bottom:var(--space-md);
+  text-wrap:balance;
+}
+.hero .lede{
+  font-size:var(--t-body-lg);
+  line-height:1.42;
+  font-weight:400;
+  color:var(--ink);
+  max-width:7.3in;
+  text-wrap:pretty;
+}
+.hero .lede .accent{color:var(--blue);font-weight:400}
+
+/* ============================================================
+   3. TWO COLUMNS (case studies + offer)
+   ============================================================ */
+.body{
+  display:grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap:var(--space-xl);
+  padding:var(--space-md) 0;
+  flex:1;
+  min-height:0;
+  align-items:stretch;
+}
+.col{display:flex;flex-direction:column;gap:var(--space-md);min-width:0}
+.col-title{
+  display:flex;align-items:center;gap:10px;
+  font-size:var(--t-eyebrow);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue);
+}
+.col-title::after{
+  content:"";flex:1;height:1px;background:var(--blue);opacity:.9;
+}
+
+/* ---------- Case study card ---------- */
+.case{
+  border:1.25px solid var(--rule);
+  border-radius:4px;
+  padding:var(--space-md);
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-sm);
+  background:var(--white);
+  break-inside:avoid;
+}
+.case .stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-md);
+  padding-bottom:var(--space-sm);
+  border-bottom:1px solid var(--soft-rule);
+}
+.case .stat .big{
+  font-size:var(--t-stat);
+  font-weight:var(--stat-weight);
+  line-height:.95;
+  letter-spacing:-.025em;
+  color:var(--navy);
+  font-feature-settings:"tnum","ss01";
+  white-space:nowrap;
+}
+.case .stat .sub{
+  font-size:9pt;
+  line-height:1.25;
+  color:var(--muted);
+  font-weight:400;
+  text-align:right;
+  max-width:20ch;
+}
+.case--flipped .stat{
+  flex-direction:row-reverse;
+}
+.case--flipped .stat .sub{
+  text-align:left;
+}
+.case .story{
+  min-width:0;
+}
+.case .story h3{
+  font-size:var(--t-h3);
+  font-weight:500;
+  color:var(--navy);
+  line-height:1.2;
+  letter-spacing:-.005em;
+  margin-bottom:var(--space-xs);
+}
+.case .story p{
+  font-size:9.8pt;
+  line-height:1.45;
+  color:var(--ink);
+  font-weight:400;
+  text-wrap:pretty;
+}
+
+/* ---------- Offer panel ---------- */
+.offer{
+  border:1.25px solid var(--rule);
+  border-radius:4px;
+  padding:var(--space-md);
+  display:flex;flex-direction:column;gap:var(--space-sm);
+  background:var(--white);
+}
+.offer .offer-title{
+  font-size:var(--t-h2);
+  font-weight:300;
+  color:var(--navy);
+  line-height:1.15;
+  letter-spacing:-.01em;
+}
+.offer > p.intro{
+  font-size:var(--t-body);
+  line-height:1.42;
+  color:var(--ink);
+  text-wrap:pretty;
+}
+.offer > .format{
+  font-size:8.5pt;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding-top:2px;
+}
+
+.sessions{
+  display:flex;flex-direction:column;
+  border-top:.75px solid var(--soft-rule);
+  border-bottom:.75px solid var(--soft-rule);
+}
+.session{
+  display:grid;
+  grid-template-columns:62px 1fr;
+  column-gap:var(--space-md);
+  align-items:baseline;
+  padding:var(--space-sm) 0;
+  border-bottom:.5px solid var(--soft-rule);
+}
+.session:last-child{border-bottom:0}
+.session .num{
+  font-size:7.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);white-space:nowrap;
+}
+.session .body-col{
+  display:flex;flex-direction:column;gap:1px;
+}
+.session .t{
+  font-size:11.5pt;
+  font-weight:400;
+  color:var(--navy);
+  line-height:1.2;
+}
+.session .d{
+  font-size:9.5pt;
+  line-height:1.35;
+  color:var(--muted);
+}
+
+/* price row inside offer */
+.price-row{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  column-gap:14px;
+  padding:6px 0 2px;
+}
+.price-row .nums{
+  display:flex;align-items:baseline;gap:10px;
+}
+.price-row .is{
+  font-size:28pt;font-weight:300;color:var(--navy);
+  letter-spacing:-.02em;line-height:1;
+  font-feature-settings:"tnum","ss01";
+}
+.price-row .for{
+  font-size:9.5pt;color:var(--muted);line-height:1.25;
+  display:flex;flex-direction:column;gap:1px;
+}
+.price-row .for b{
+  color:var(--blue);font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;font-size:8pt;
+}
+
+/* Guarantee */
+.guarantee{
+  display:grid;
+  grid-template-columns:max-content 1fr;
+  column-gap:var(--space-md);
+  align-items:baseline;
+  padding:var(--space-sm) 0 0;
+  border-top:.5px solid var(--soft-rule);
+  color:var(--navy);
+  font-size:9.5pt;
+  line-height:1.35;
+  font-weight:400;
+}
+.guarantee .mark{
+  font-size:7.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);
+}
+
+/* ============================================================
+   4. FOOTER (CTA + QR)
+   ============================================================ */
+.footer{
+  margin-top:auto;
+  border-top:1.25px solid var(--rule);
+  padding-top:var(--space-md);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:var(--space-xl);
+  align-items:start;
+}
+.footer h3{
+  font-size:16pt;
+  font-weight:400;
+  color:var(--navy);
+  line-height:1.15;
+  letter-spacing:-.015em;
+  margin-bottom:var(--space-xs);
+}
+.footer p.cta-sub{
+  font-size:9.5pt;
+  line-height:1.4;
+  color:var(--ink);
+  max-width:4.4in;
+  margin-bottom:var(--space-2xl);
+  text-wrap:pretty;
+}
+.contact{
+  display:flex;align-items:center;gap:var(--space-md);flex-wrap:wrap;
+  font-size:10pt;line-height:1.3;
+  margin-bottom:var(--space-sm);
+}
+.contact a{color:var(--blue);text-decoration:none;font-weight:400}
+.contact .dot{width:3px;height:3px;border-radius:50%;background:var(--muted);display:inline-block}
+.contact .cal{
+  display:inline-flex;align-items:center;gap:var(--space-xs);
+  border-bottom:.75px solid var(--blue);
+  padding-bottom:1px;
+  color:var(--blue);
+}
+
+.tagline{
+  font-size:8.5pt;
+  line-height:1.45;
+  color:var(--muted);
+  font-feature-settings:"tnum","ss01";
+}
+.tagline .em{color:var(--navy);font-weight:400}
+
+/* QR block */
+.qr{
+  display:flex;flex-direction:column;align-items:center;gap:var(--space-xs);
+  padding:var(--space-sm);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  background:var(--white);
+}
+.qr img{
+  display:block;
+  width:1.85in;height:1.85in;
+  image-rendering:pixelated;
+}
+.qr .qr-cap{
+  font-size:7.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--black);text-align:center;
+}
+
+/* ============================================================
+   5. PRINT
+   ============================================================ */
+@page{
+  size: letter portrait;
+  margin: 0;
+}
+@media print{
+  html,body{background:#fff}
+  body{margin:0}
+  .sheet{
+    width:8.5in;height:11in;
+    margin:0;
+    box-shadow:none;
+    page-break-after:avoid;
+    overflow:hidden;
+  }
+  .screen-only{display:none !important}
+  a{color:var(--blue) !important}
+  h1,h2,h3,.case,.offer,.session,.footer{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="masthead">
+    <div class="logo-lod">
+      <img src="assets/lod-logo-black.png" alt="Lights On Digital">
+    </div>
+    <div class="eyebrow">For Independent Hotels</div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <h1>Your hotel is leaving money on the table. Let's find it.</h1>
+    <p class="deck">No silver bullet. A dozen lead bullets.</p>
+    <p class="lede">
+      Occupancy looks okay but revenue isn't growing. OTAs take a bigger slice every year.
+      You know something's off, but there's no time to dig into it. Small things compound:
+      an invisible Google listing, stale rates, unanswered reviews, a dormant email list.
+      We've seen this pattern across <span class="accent">40+ hotels in six states</span>.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       BODY — TWO COLUMNS
+       ============================================================ -->
+  <section class="body">
+
+    <!-- LEFT: CASE STUDIES -->
+    <div class="col col-left">
+      <h2 class="col-title">Case Studies</h2>
+
+      <article class="case">
+        <div class="stat">
+          <div class="big tnum">$418K</div>
+          <div class="sub">ahead of 2025<br>in 6 weeks</div>
+        </div>
+        <div class="story">
+          <h3>34-room Florida beachfront resort</h3>
+          <p>
+            Revenue was flat, the owner buried in operations, rates stale and behind
+            market. We took over daily pricing, closed rate parity gaps across OTAs,
+            and built dining and resident-rate packages. Six weeks in, 2026 was pacing
+            ahead of the prior year. No renovation, no new ad budget.
+          </p>
+        </div>
+      </article>
+
+      <article class="case case--flipped">
+        <div class="stat">
+          <div class="big tnum">$534K</div>
+          <div class="sub">pacing 40% ahead<br>of 2025 in 5 months</div>
+        </div>
+        <div class="story">
+          <h3>13-unit Montana luxury cottages</h3>
+          <p>
+            New ownership inherited no marketing plan and no seasonal pricing. We built
+            a demand-based rate calendar, launched paid search and social, and opened
+            the right distribution channels. Five months in, 2026 was well ahead of the
+            prior year with peak summer still to come.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- RIGHT: OFFER -->
+    <div class="col">
+      <h2 class="col-title">The Workshop</h2>
+
+      <div class="offer">
+        <h3 class="offer-title">Revenue Growth Workshop</h3>
+        <p class="intro">
+          We walk through every stage of your guest journey (Discover, Book, Arrival,
+          Stay, Reconnect), find the gaps, and build the plan to fix them.
+        </p>
+        <div class="format">Two 60-minute virtual sessions</div>
+
+        <div class="sessions">
+          <div class="session">
+            <div class="num">Session 1</div>
+            <div class="body-col">
+              <div class="t">Guest Journey Review</div>
+              <div class="d">Score every stage. Find the gaps.</div>
+            </div>
+          </div>
+          <div class="session">
+            <div class="num">Session 2</div>
+            <div class="body-col">
+              <div class="t">Priorities &amp; Action Plan</div>
+              <div class="d">Quick wins first, then bigger moves.</div>
+            </div>
+          </div>
+          <div class="session">
+            <div class="num">You Keep</div>
+            <div class="body-col">
+              <div class="t">Your 90-Day Plan</div>
+              <div class="d">Scorecard plus action plan.<br>Built with you, owned by you.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="nums">
+            <span class="is tnum">$697</span>
+          </div>
+          <div class="for">
+            <b>Flat Fee</b>
+            <span>Per property</span>
+          </div>
+        </div>
+
+        <div class="guarantee">
+          <span class="mark">Guarantee</span>
+          <span>Don't love the plan? Full refund. No questions asked.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — CTA + QR
+       ============================================================ -->
+  <footer class="footer">
+    <div class="cta">
+      <h3>Start with a 30-minute call.</h3>
+      <p class="cta-sub">
+        Tell us what's going on: what's working, what's not, and where you want
+        to be. If the workshop fits, we'll book it. If not, you'll leave with at
+        least one thing to try.
+      </p>
+      <div class="contact">
+        <a href="mailto:kin@lightson.co">kin@lightson.co</a>
+        <span class="dot"></span>
+        <a href="https://lightson.co">lightson.co</a>
+        <span class="dot"></span>
+        <a class="cal" href="https://calendly.com/d/cyq5-gkw-ntj/discovery-call-w-lights-on">Schedule a conversation&nbsp;↗</a>
+      </div>
+      <div class="tagline">
+        <span class="em">The revenue and marketing team for independent hotels.</span><br>
+        <span class="tnum">40+ hotel partners · $85M annual revenue managed · HI · CA · MT · WY · VT · FL</span>
+      </div>
+    </div>
+
+    <div class="qr">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&ecc=M&data=https%3A%2F%2Fcalendly.com%2Fd%2Fcyq5-gkw-ntj%2Fdiscovery-call-w-lights-on"
+        alt="Scan to schedule a conversation with Lights On Digital">
+      <div class="qr-cap">Scan to Schedule</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
