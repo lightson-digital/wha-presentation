@@ -32,10 +32,10 @@ Don't love the plan? Full refund. No questions asked.
 
 ---
 
-**Lights On Digital** — The revenue and marketing team for independent hotels who don't have one. 40+ hotel partners · $85M annual revenue managed · HI · CA · MT · WY · VT · FL · WHA Allied Member
+**Lights On Digital** — The revenue and marketing team for independent hotels. 40+ hotel partners · $85M annual revenue managed · HI · CA · MT · WY · VT · FL · WHA Allied Member
 
 **Let's talk about your hotel.** kin@lightson.co · lightson.co
 
-**Schedule a conversation:** https://calendly.com/kin-lightson/30min
+**Schedule a conversation:** https://calendly.com/d/cyq5-gkw-ntj/discovery-call-w-lights-on
 
 [QR CODE]

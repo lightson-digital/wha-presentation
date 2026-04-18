@@ -430,7 +430,6 @@
   }
   .op-hero p {
     font-size: 15px; color: var(--body); line-height: 1.55; margin: 0;
-    max-width: 72ch;
   }
   .one-pager h2 {
     font-size: 13px; font-weight: 600; color: var(--accent);
@@ -472,6 +471,9 @@
   }
 
   /* Right column — offer */
+  .op-offer {
+    display: flex; flex-direction: column;
+  }
   .op-workshop-intro {
     font-size: 14px; color: var(--body); line-height: 1.55;
     margin-bottom: 14px;
@@ -495,7 +497,7 @@
   .op-session-desc { font-size: 13px; color: var(--dim); line-height: 1.4; }
   .op-price-line {
     display: flex; align-items: baseline; gap: 10px;
-    margin-top: 16px; padding-top: 14px;
+    margin-top: auto; padding-top: 16px;
     border-top: 1px solid var(--border);
   }
   .op-price-new {
@@ -567,40 +569,40 @@
     }
     .one-pager { max-width: 100%; padding: 0; display: block; }
 
-    /* Tighten spacing so content fits on a single Letter page */
-    .op-header { margin-bottom: 14px; }
-    .op-badge { padding: 4px 10px; font-size: 11px; }
-    .op-hero { margin-bottom: 14px; padding-bottom: 12px; }
-    .op-title { font-size: 25px; margin-bottom: 9px; line-height: 1.12; }
-    .op-hero p { font-size: 12.5px; line-height: 1.5; max-width: 100%; }
-    .op-body { gap: 22px; margin-bottom: 12px; break-inside: avoid; }
-    .one-pager h2 { margin-bottom: 8px; font-size: 12px; }
+    /* Readability-first sizing for printed one-pager */
+    .op-header { margin-bottom: 16px; }
+    .op-badge { padding: 5px 12px; font-size: 12px; }
+    .op-hero { margin-bottom: 18px; padding-bottom: 14px; }
+    .op-title { font-size: 28px; margin-bottom: 10px; line-height: 1.12; }
+    .op-hero p { font-size: 14px; line-height: 1.55; max-width: 100%; }
+    .op-body { gap: 26px; margin-bottom: 14px; break-inside: avoid; }
+    .one-pager h2 { margin-bottom: 10px; font-size: 13px; }
     .op-case-card {
-      padding: 11px 13px; margin-bottom: 9px;
+      padding: 14px 16px; margin-bottom: 12px;
       break-inside: avoid; box-shadow: none;
     }
-    .op-case-num { font-size: 30px; }
-    .op-case-label { font-size: 12.5px; margin: 2px 0 6px; }
-    .op-case-card p { font-size: 11.5px; line-height: 1.45; }
-    .op-workshop-intro { font-size: 12.5px; margin-bottom: 8px; line-height: 1.5; }
-    .op-session { padding: 7px 0; }
-    .op-session-label { font-size: 10px; min-width: 70px; }
-    .op-session-title { font-size: 13.5px; }
-    .op-session-desc { font-size: 12px; line-height: 1.35; }
-    .op-price-line { margin-top: 10px; padding-top: 9px; }
-    .op-price-new { font-size: 22px; }
-    .op-price-old { font-size: 12.5px; }
-    .op-guarantee { font-size: 11.5px; margin-top: 4px; }
+    .op-case-num { font-size: 34px; }
+    .op-case-label { font-size: 14px; margin: 3px 0 8px; }
+    .op-case-card p { font-size: 13px; line-height: 1.5; }
+    .op-workshop-intro { font-size: 13.5px; margin-bottom: 10px; line-height: 1.5; }
+    .op-session { padding: 9px 0; }
+    .op-session-label { font-size: 11px; min-width: 74px; }
+    .op-session-title { font-size: 14.5px; }
+    .op-session-desc { font-size: 13px; line-height: 1.4; }
+    .op-price-line { margin-top: auto; padding-top: 12px; }
+    .op-price-new { font-size: 25px; }
+    .op-price-old { font-size: 13.5px; }
+    .op-guarantee { font-size: 12.5px; margin-top: 5px; }
     .op-footer {
-      padding-top: 11px; gap: 18px; break-inside: avoid;
+      padding-top: 14px; gap: 20px; break-inside: avoid;
       align-items: flex-start;
     }
-    .op-footer h3 { font-size: 15px; margin-bottom: 4px; }
-    .op-footer p { font-size: 12px; margin-bottom: 4px; }
-    .op-contact { font-size: 12px; }
-    .op-meta { font-size: 10.5px; margin-top: 4px; line-height: 1.4; }
-    .op-qr img { width: 92px; height: 92px; }
-    .op-qr-label { font-size: 9px; }
+    .op-footer h3 { font-size: 16px; margin-bottom: 5px; }
+    .op-footer p { font-size: 13px; margin-bottom: 5px; }
+    .op-contact { font-size: 13px; }
+    .op-meta { font-size: 11.5px; margin-top: 5px; line-height: 1.4; }
+    .op-qr img { width: 108px; height: 108px; }
+    .op-qr-label { font-size: 10px; }
   }
 
   /* ── Reduced Motion ── */
@@ -1066,12 +1068,12 @@
           <h3>Let's Talk About Your Hotel</h3>
           <p>We'd love to hear what's going on — what's working, what's not, and where you want to be.</p>
           <div class="op-contact">
-            <a href="mailto:kin@lightson.co">kin@lightson.co</a> · <a href="https://lightson.co" target="_blank" rel="noopener noreferrer">lightson.co</a> · <a href="https://calendly.com/kin-lightson/30min" target="_blank" rel="noopener noreferrer" class="op-cta-link">Schedule a conversation ↗</a>
+            <a href="mailto:kin@lightson.co">kin@lightson.co</a> · <a href="https://lightson.co" target="_blank" rel="noopener noreferrer">lightson.co</a> · <a href="https://calendly.com/d/cyq5-gkw-ntj/discovery-call-w-lights-on" target="_blank" rel="noopener noreferrer" class="op-cta-link">Schedule a conversation ↗</a>
           </div>
-          <div class="op-meta">The revenue and marketing team for independent hotels who don't have one.<br>40+ hotel partners · $85M annual revenue managed<br>HI · CA · MT · WY · VT · FL</div>
+          <div class="op-meta">The revenue and marketing team for independent hotels.<br>40+ hotel partners · $85M annual revenue managed<br>HI · CA · MT · WY · VT · FL</div>
         </div>
         <div class="op-qr">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://calendly.com/kin-lightson/30min" alt="Scan to schedule a conversation">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://calendly.com/d/cyq5-gkw-ntj/discovery-call-w-lights-on" alt="Scan to schedule a conversation">
           <div class="op-qr-label">Scan to schedule</div>
         </div>
       </div>
