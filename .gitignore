@@ -1,0 +1,12 @@
+# Internal speaker / planning docs (not for public deploy)
+DECK-STATUS.md
+SLEEP-SUMMARY.md
+brief-context.md
+PROMPT.md
+
+# Archived WHA-era content
+_archive-wha/
+
+# OS / editor cruft
+.DS_Store
+*.swp

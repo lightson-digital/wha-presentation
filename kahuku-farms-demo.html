@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kahuku Farms · Hospitality Business Skills · Powered by Lights On</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --heading: #061b31;
+    --label: #273951;
+    --body: #273951;
+    --accent: #533afd;
+    --border: #e5edf5;
+    --bg: #ffffff;
+    --surface-alt: #fafbfd;
+    --muted: #5a6b7e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  body {
+    font-family: 'Inter', -apple-system, 'SF Pro Display', sans-serif;
+    font-feature-settings: "ss01";
+    font-weight: 300;
+    color: var(--body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  .titlebar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 32px 18px;
+  }
+  .titlebar h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.32px;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+  .titlebar .subline {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+    margin: 0;
+  }
+  .titlebar .subline a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .titlebar .subline a:hover { text-decoration: underline; }
+  .tabbar {
+    position: sticky;
+    top: 76px;
+    z-index: 19;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+  .tab {
+    flex: 0 0 auto;
+    padding: 14px 20px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--label);
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    min-width: 130px;
+  }
+  .tab:hover { color: var(--heading); }
+  .tab .eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  .tab .skillname {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--label);
+    line-height: 1.3;
+  }
+  .tab.active {
+    border-bottom-color: var(--accent);
+  }
+  .tab.active .eyebrow { color: var(--accent); }
+  .tab.active .skillname { font-weight: 500; color: var(--heading); }
+  .tab:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -4px;
+  }
+  .frames {
+    background: var(--surface-alt);
+  }
+  .frame {
+    display: none;
+    width: 100%;
+    background: var(--bg);
+  }
+  .frame.active { display: block; }
+  .frame iframe {
+    display: block;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    border: 0;
+    background: var(--bg);
+  }
+  @media (max-width: 720px) {
+    .titlebar { padding: 16px 20px 14px; }
+    .titlebar h1 { font-size: 18px; }
+    .titlebar .subline { font-size: 12px; }
+    .tabbar { top: 70px; padding: 0 8px; }
+    .tab { min-width: 110px; padding: 12px 14px 10px; }
+    .tab .skillname { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <h1>Kahuku Farms · Hospitality Business Skills · Powered by Lights On</h1>
+  <p class="subline">All 6 skill outputs from a live run on <a href="https://kahukufarms.com" target="_blank" rel="noopener">https://kahukufarms.com</a> · ran on 2026-05-06</p>
+</div>
+
+<nav class="tabbar" role="tablist" aria-label="Skill outputs">
+  <button class="tab active" role="tab" data-target="context" aria-controls="frame-context" aria-selected="true">
+    <span class="eyebrow">Context</span>
+    <span class="skillname">Business Context</span>
+  </button>
+  <button class="tab" role="tab" data-target="discover" aria-controls="frame-discover" aria-selected="false">
+    <span class="eyebrow">Discover</span>
+    <span class="skillname">Findability Check</span>
+  </button>
+  <button class="tab" role="tab" data-target="book" aria-controls="frame-book" aria-selected="false">
+    <span class="eyebrow">Book</span>
+    <span class="skillname">Booking Edge</span>
+  </button>
+  <button class="tab" role="tab" data-target="pre-arrival" aria-controls="frame-pre-arrival" aria-selected="false">
+    <span class="eyebrow">Pre-arrival</span>
+    <span class="skillname">Pre-Arrival Concierge</span>
+  </button>
+  <button class="tab" role="tab" data-target="experience" aria-controls="frame-experience" aria-selected="false">
+    <span class="eyebrow">Experience</span>
+    <span class="skillname">Experience Pulse</span>
+  </button>
+  <button class="tab" role="tab" data-target="reconnect" aria-controls="frame-reconnect" aria-selected="false">
+    <span class="eyebrow">Reconnect</span>
+    <span class="skillname">Repeat Hooks</span>
+  </button>
+</nav>
+
+<div class="frames">
+  <section class="frame active" id="frame-context" role="tabpanel" aria-labelledby="tab-context">
+    <iframe src="./kahuku-farms-runs/business-context.html" title="Business Context"></iframe>
+  </section>
+  <section class="frame" id="frame-discover" role="tabpanel" aria-labelledby="tab-discover">
+    <iframe src="./kahuku-farms-runs/findability-check.html" title="Findability Check" loading="lazy"></iframe>
+  </section>
+  <section class="frame" id="frame-book" role="tabpanel" aria-labelledby="tab-book">
+    <iframe src="./kahuku-farms-runs/booking-edge.html" title="Booking Edge" loading="lazy"></iframe>
+  </section>
+  <section class="frame" id="frame-pre-arrival" role="tabpanel" aria-labelledby="tab-pre-arrival">
+    <iframe src="./kahuku-farms-runs/pre-arrival-concierge.html" title="Pre-Arrival Concierge" loading="lazy"></iframe>
+  </section>
+  <section class="frame" id="frame-experience" role="tabpanel" aria-labelledby="tab-experience">
+    <iframe src="./kahuku-farms-runs/experience-pulse.html" title="Experience Pulse" loading="lazy"></iframe>
+  </section>
+  <section class="frame" id="frame-reconnect" role="tabpanel" aria-labelledby="tab-reconnect">
+    <iframe src="./kahuku-farms-runs/repeat-hooks.html" title="Repeat Hooks" loading="lazy"></iframe>
+  </section>
+</div>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.tab');
+  var frames = document.querySelectorAll('.frame');
+
+  function activate(target) {
+    if (!target) return;
+    var matched = false;
+    tabs.forEach(function(tab) {
+      var isActive = tab.getAttribute('data-target') === target;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive) matched = true;
+    });
+    frames.forEach(function(frame) {
+      var isActive = frame.id === 'frame-' + target;
+      frame.classList.toggle('active', isActive);
+    });
+    if (matched && history.replaceState) {
+      history.replaceState(null, '', '#' + target);
+    }
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activate(tab.getAttribute('data-target'));
+    });
+  });
+
+  // Deep-link via URL hash
+  var initial = (window.location.hash || '').replace(/^#/, '');
+  var allowed = ['context', 'discover', 'book', 'pre-arrival', 'experience', 'reconnect'];
+  if (allowed.indexOf(initial) >= 0) {
+    activate(initial);
+  }
+
+  window.addEventListener('hashchange', function() {
+    var h = (window.location.hash || '').replace(/^#/, '');
+    if (allowed.indexOf(h) >= 0) activate(h);
+  });
+})();
+</script>
+
+</body>
+</html>

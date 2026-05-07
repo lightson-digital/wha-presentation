@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#533afd">
-<title>WHA Presentation — Lights On Digital</title>
+<title>AI Teammates for Hospitality Businesses · Lights On Digital</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
     /* Stripe light-mode palette from DESIGN.md */
     --bg: #fafbfd;
-    --heading: #061b31;      /* Deep Navy — headings, strong text */
+    --heading: #061b31;      /* Deep Navy . headings, strong text */
     --white: #061b31;        /* Legacy var used for headings throughout */
     --pure-white: #fefefe;
-    --body: #425466;         /* Mid Slate — body text */
-    --label: #273951;        /* Dark Slate — labels */
+    --body: #425466;         /* Mid Slate . body text */
+    --label: #273951;        /* Dark Slate . labels */
     --muted: #425466;        /* Body text color */
-    --dim: #7a8a9c;          /* Tertiary text — AA compliant */
+    --dim: #7a8a9c;          /* Tertiary text . AA compliant */
     --border: #e5edf5;       /* Soft blue border */
     --accent: #533afd;       /* Stripe Purple */
     --accent-hover: #4434d4;
@@ -28,7 +28,7 @@
     --red: #ea2261;          /* Ruby */
     --red-bg: rgba(234,34,97,0.06);
     --red-border: rgba(234,34,97,0.18);
-    --amber: #9b6829;        /* Lemon — warnings/highlights */
+    --amber: #9b6829;        /* Lemon . warnings/highlights */
     --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
 
@@ -359,7 +359,7 @@
     background: var(--accent); transition: width 0.4s ease; z-index: 101;
   }
 
-  /* ── Speaker Notes (stays dark — presenter-only panel) ── */
+  /* ── Speaker Notes (stays dark . presenter-only panel) ── */
   .notes-panel {
     position: fixed; right: 0; top: 0; bottom: 0; width: 380px;
     background: #0d253d; border-left: 1px solid rgba(255,255,255,0.08);
@@ -384,13 +384,105 @@
   /* ── Cover Slide ── */
   .cover-logos {
     display: flex; align-items: center; justify-content: center;
-    gap: 48px; margin-bottom: 64px;
+    margin-bottom: 64px;
   }
-  .cover-logos img.wha-logo { height: 80px; }
   .cover-logos img.lod-logo { height: 72px; filter: invert(1); }
   .cover-promise {
-    font-size: 36px; font-weight: 300; color: var(--heading);
-    line-height: 1.35; max-width: 780px; letter-spacing: -0.36px;
+    font-size: 48px; font-weight: 300; color: var(--heading);
+    line-height: 1.25; max-width: 1100px; letter-spacing: -0.96px;
+  }
+  .cover-promise .accent { color: var(--accent); font-weight: 400; }
+  .cover-meta {
+    margin-top: 36px; font-size: 14px; color: var(--dim);
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+
+  /* ── Accent emphasis in titles ── */
+  .slide-title .accent { color: var(--accent); font-weight: 400; }
+
+  /* ── Wide foundation card (slide 3) ── */
+  .foundation-card {
+    border: 1px solid var(--accent);
+    background: rgba(83,58,253,0.06);
+    border-radius: 8px;
+    padding: 22px 28px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+  }
+  .foundation-card .f-name {
+    font-size: 22px; font-weight: 500; color: var(--heading);
+    line-height: 1.2;
+  }
+  .foundation-card .f-tag {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+  }
+  .foundation-card .f-desc {
+    font-size: 16px; color: var(--body); line-height: 1.5;
+  }
+  .foundation-card .f-desc em { color: var(--heading); font-style: italic; font-weight: 500; }
+  .foundation-card .f-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 15px; font-weight: 500; color: var(--accent);
+    text-decoration: none; padding: 10px 18px;
+    border: 1px solid var(--accent); border-radius: 6px;
+    background: var(--pure-white);
+    justify-self: end; white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .foundation-card .f-link:hover { background: var(--accent); color: var(--pure-white); }
+
+  /* ── Skill link inside cards (slide 3) . same style as Full case study ── */
+  .skill-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 14px; font-weight: 500; color: var(--accent);
+    text-decoration: none;
+    margin-top: 10px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+    align-self: flex-start;
+  }
+  .skill-link:hover { border-bottom-color: var(--accent); }
+  .skill-link.disabled {
+    color: var(--dim); cursor: default; pointer-events: none;
+  }
+
+  /* ── LOD intro slide (slide 4) ── */
+  .lod-qr-row {
+    display: flex; align-items: center; gap: 36px;
+    margin-top: 36px; padding: 24px 32px;
+    border: 1px solid var(--border); border-radius: 8px;
+    background: var(--pure-white);
+    box-shadow: var(--shadow-ambient);
+    max-width: 900px;
+  }
+  .lod-qr-row img.qr {
+    width: 130px; height: 130px;
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px; background: white;
+    flex-shrink: 0;
+  }
+  .lod-qr-text { text-align: left; }
+  .lod-qr-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .lod-qr-headline {
+    font-size: 22px; font-weight: 400; color: var(--heading);
+    line-height: 1.25; margin-bottom: 6px; letter-spacing: -0.22px;
+  }
+  .lod-qr-detail {
+    font-size: 14px; color: var(--dim); line-height: 1.5;
+  }
+
+  /* ── Stage card override: ensure consistent height + flex column ── */
+  .discipline-cards.cols-5 .discipline-card {
+    display: flex; flex-direction: column;
   }
 
   /* ── Keyboard Hint ── */
@@ -399,7 +491,7 @@
     font-size: 10px; color: var(--dim); letter-spacing: 0.08em;
     opacity: 0.5;
   }
-  /* ── One-Pager v2 (slide 9 — iframe) ── */
+  /* ── One-Pager v2 (slide 9 . iframe) ── */
   .onepager-frame {
     width: 8.5in; height: 11in;
     max-width: 100%; max-height: 100%;
@@ -523,335 +615,120 @@
 
 <div class="deck" id="deck">
 
-  <!-- ═══ COVER SLIDE ═══ -->
+  <!-- ═══ SLIDE 0: COVER ═══ -->
   <div class="slide active" data-slide="0">
     <div class="cover-logos">
-      <img src="wha-logo.png" alt="Washington Hospitality Association" class="wha-logo">
-      <img src="logo.png" alt="Lights On Digital" class="lod-logo">
+      <a href="https://lightson.co" target="_blank" rel="noopener"><img src="logo.png" alt="Lights On Digital" class="lod-logo"></a>
     </div>
-    <div class="cover-promise">After today, you'll have a framework and a partner for every hotel member struggling with revenue.</div>
+    <div class="cover-promise">
+      In the next 20 minutes, you will walk out with an <span class="accent">AI teammate</span> already running on your business.
+    </div>
   </div>
 
-  <!-- ═══ SLIDE 1: The Provocation ═══ -->
+  <!-- ═══ SLIDE 1: THE CHASM ═══ -->
   <div class="slide" data-slide="1">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">What if every hotel member made more this year?</div>
-
-    <div class="calc-wrap">
-      <div class="calc-sliders">
-        <div class="calc-slider-group">
-          <div class="calc-label">Annual Revenue</div>
-          <input type="range" id="calcRevenue" class="calc-range" min="500000" max="10000000" step="500000" value="2000000">
-          <div class="calc-value" id="calcRevenueVal">$2M</div>
-        </div>
-        <div class="calc-slider-group">
-          <div class="calc-label">Revenue Increase</div>
-          <input type="range" id="calcPct" class="calc-range" min="1" max="15" step="1" value="5">
-          <div class="calc-value" id="calcPctVal">5%</div>
-        </div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-label">Additional Revenue</div>
-        <div class="calc-result-num" id="calcResult">+$100K</div>
-        <div class="calc-result-sub">per year — no renovation, no massive ad budget</div>
-      </div>
-    </div>
+    <div style="margin-bottom:24px"><a href="https://lightson.co" target="_blank" rel="noopener"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></a></div>
+    <div class="slide-title">Most people treat AI like <span class="accent">a fancy search engine</span> that has <span class="accent">Dementia</span>.</div>
+    <div class="slide-subtitle">It answers your question, then forgets your business the moment you close the tab. Every chat starts from zero.</div>
   </div>
 
-  <!-- ═══ SLIDE 2: What Lights On Does ═══ -->
+  <!-- ═══ SLIDE 2: THE GAME BOARD ═══ -->
   <div class="slide" data-slide="2">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">We find and fix the boring stuff — so hoteliers can live a fuller life.</div>
-    <div class="slide-subtitle">Find where money leaks, plug the holes, and keep them plugged.</div>
+    <div style="margin-bottom:24px"><a href="https://lightson.co" target="_blank" rel="noopener"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></a></div>
+    <div class="slide-title">Where AI teammates live in your business.</div>
+    <div class="slide-subtitle">Pick a stage. Pick a skill. We run it on a real Hawaiʻi tour operator, live.</div>
 
-    <div class="discipline-cards">
-      <div class="discipline-card">
-        <div class="discipline-name">Revenue</div>
-        <div class="discipline-desc">Are they charging the right price every night?</div>
+    <div class="discipline-cards cols-5">
+      <div class="discipline-card" style="text-align:left">
+        <div class="discipline-name">Discover</div>
+        <ul class="stage-actions">
+          <li>Are travelers finding you?</li>
+        </ul>
+        <a class="skill-link" href="https://claude.ai/new?q=Run%20the%20Findability%20Check%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Ffindability-check%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Findability Check ↗</a>
       </div>
-      <div class="discipline-card">
-        <div class="discipline-name">Marketing</div>
-        <div class="discipline-desc">Are the right guests finding them online?</div>
+      <div class="discipline-card" style="text-align:left">
+        <div class="discipline-name">Book</div>
+        <ul class="stage-actions">
+          <li>Do they pick you over the competition?</li>
+        </ul>
+        <a class="skill-link" href="https://claude.ai/new?q=Run%20the%20Booking%20Edge%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Fbooking-edge%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Booking Edge ↗</a>
       </div>
-      <div class="discipline-card">
-        <div class="discipline-name">Distribution</div>
-        <div class="discipline-desc">Are they paying too much to Expedia and Booking?</div>
+      <div class="discipline-card" style="text-align:left">
+        <div class="discipline-name">Pre-arrival</div>
+        <ul class="stage-actions">
+          <li>Are guests ready before they show up?</li>
+        </ul>
+        <a class="skill-link" href="https://claude.ai/new?q=Run%20the%20Pre-Arrival%20Concierge%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Fpre-arrival-concierge%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Pre-Arrival Concierge ↗</a>
       </div>
-      <div class="discipline-card">
-        <div class="discipline-name">Web</div>
-        <div class="discipline-desc">When someone visits, do they actually book?</div>
+      <div class="discipline-card" style="text-align:left">
+        <div class="discipline-name">Experience</div>
+        <ul class="stage-actions">
+          <li>Are travelers getting what they actually want?</li>
+        </ul>
+        <a class="skill-link" href="https://claude.ai/new?q=Run%20the%20Experience%20Pulse%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Fexperience-pulse%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Experience Pulse ↗</a>
+      </div>
+      <div class="discipline-card" style="text-align:left">
+        <div class="discipline-name">Reconnect</div>
+        <ul class="stage-actions">
+          <li>Do past guests come back or refer?</li>
+        </ul>
+        <a class="skill-link" href="https://claude.ai/new?q=Run%20the%20Repeat%20Hooks%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Frepeat-hooks%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Repeat Hooks ↗</a>
       </div>
     </div>
 
-    <div class="stats-bar">
-      <div class="stat"><strong>40+</strong> hotel partners</div>
-      <div class="stat"><strong>$85M</strong> annual hotel revenue managed</div>
-      <div class="stat">HI · CA · MT · WY · VT · FL</div>
+    <div class="foundation-card">
+      <div>
+        <div class="f-tag">Foundation</div>
+        <div class="f-name">Context</div>
+      </div>
+      <div class="f-desc">
+        Have you taught AI <em>your</em> business? Run this first. Every other teammate reuses what it learns.
+      </div>
+      <a class="f-link" href="https://claude.ai/new?q=Run%20the%20Business%20Context%20skill%20from%20https%3A%2F%2Fgithub.com%2Flightson-digital%2Fhospitality-business-skills%2Fblob%2Fmain%2Fbusiness-context%2FSKILL.md%20on%20" target="_blank" rel="noopener">Run Business Context ↗</a>
+    </div>
+
+    <div style="margin-top:28px;font-size:18px;font-weight:500;color:var(--heading);font-style:italic;letter-spacing:-0.01em">
+      AI is a teammate you teach once with an SOP. Not a chatbot you re-prompt every time.
+    </div>
+
+    <div style="position:absolute;bottom:64px;right:32px;display:flex;gap:8px;z-index:110;">
+      <a href="./kahuku-farms-demo.html" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#533afd;text-decoration:none;border:1px solid #d6d9fc;border-radius:6px;padding:6px 12px;background:rgba(83,58,253,0.04);transition:background 0.2s;">
+        <span>Live demo ↗</span>
+      </a>
+      <a href="https://github.com/lightson-digital/hospitality-business-skills" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#533afd;text-decoration:none;border:1px solid #d6d9fc;border-radius:6px;padding:6px 12px;background:rgba(83,58,253,0.04);transition:background 0.2s;">
+        <span>GitHub repo ↗</span>
+      </a>
     </div>
   </div>
 
-  <!-- ═══ SLIDE 3: Guest Journey Framework ═══ -->
+  <!-- ═══ SLIDE 3: WHO IS LIGHTS ON ═══ -->
   <div class="slide" data-slide="3">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">Every hotel has money hiding in a guest's journey.</div>
-    <div class="journey-bar">
-      <div class="journey-stage">
-        <div class="stage-num">01</div>
-        <div class="stage-name">Discover</div>
-        <div class="stage-q">How do guests find you?</div>
-      </div>
-      <div class="journey-stage">
-        <div class="stage-num">02</div>
-        <div class="stage-name">Book</div>
-        <div class="stage-q">When ready, do they pick you?</div>
-      </div>
-      <div class="journey-stage">
-        <div class="stage-num">03</div>
-        <div class="stage-name">Arrival</div>
-        <div class="stage-q">Are you selling before check-in?</div>
-      </div>
-      <div class="journey-stage">
-        <div class="stage-num">04</div>
-        <div class="stage-name">Stay</div>
-        <div class="stage-q">Do guests leave as advocates?</div>
-      </div>
-      <div class="journey-stage">
-        <div class="stage-num">05</div>
-        <div class="stage-name">Reconnect</div>
-        <div class="stage-q">Do past guests come back?</div>
+    <div style="margin-bottom:24px"><a href="https://lightson.co" target="_blank" rel="noopener"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></a></div>
+    <div class="slide-title">We find the revenue left on the table across the guest journey, for you.</div>
+    <div class="slide-subtitle">Lights On is a hospitality-focused commercial strategy agency. We build AI teammates like these into our clients' day-to-day work.</div>
+
+    <div class="lod-qr-row">
+      <img src="qr-code.png" alt="Email Kin to get the skill files" class="qr">
+      <div class="lod-qr-text">
+        <div class="lod-qr-eyebrow">Take the skills home</div>
+        <div class="lod-qr-headline">Scan to email me. I'll send all 6 skill files.</div>
+        <div class="lod-qr-detail">Opens an email to <strong style="color:var(--heading)">kin@lightson.co</strong> already drafted. Hit send and you'll get the full Hospitality Business Skills kit. Or grab them directly: <strong style="color:var(--heading)">github.com/lightson-digital/hospitality-business-skills</strong>.</div>
       </div>
     </div>
   </div>
-
-  <!-- ═══ SLIDE 4: Case Study ═══ -->
-  <div class="slide" data-slide="4">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">Case Study: A Florida 34-room beachfront resort</div>
-
-    <div class="case-hero" style="grid-template-columns:1fr 180px;align-items:center">
-      <div class="case-stat">
-        <div class="case-stat-num">$418K</div>
-        <div class="case-stat-label" style="font-size:16px">ahead of 2025 in six weeks</div>
-        <div class="case-stat-label" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:13px;color:var(--dim)">Revenue flat year-over-year. Rates stale and behind market. Owner buried in operations.</div>
-      </div>
-      <div class="case-image" style="height:140px">
-        <img src="https://static.wixstatic.com/media/a872ce_5ebfc80117444417b286dbbc74ea5f57~mv2.jpg/v1/fill/w_640,h_718,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a872ce_5ebfc80117444417b286dbbc74ea5f57~mv2.jpg" alt="Florida boutique property">
-      </div>
-    </div>
-
-    <div class="discipline-cards cols-5">
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Discover</div>
-        <ul class="stage-actions">
-          <li>Google Hotel Ads fixes</li>
-          <li>Google Ads campaigns</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Book</div>
-        <ul class="stage-actions">
-          <li>Daily rate management</li>
-          <li>Rate integrity</li>
-          <li>New channel activation</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Arrival</div>
-        <ul class="stage-actions">
-          <li>Capture email</li>
-          <li>Upsell packages</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Stay</div>
-        <ul class="stage-actions">
-          <li>Restaurant credits</li>
-          <li>Upsell opportunities</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Reconnect</div>
-        <ul class="stage-actions">
-          <li>Repeat guest offers</li>
-          <li>Email marketing</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 5: Olympic Lodge ═══ -->
-  <div class="slide" data-slide="5">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">No silver bullet. A dozen lead bullets.</div>
-    <div class="slide-subtitle">Olympic Lodge by Ayres, Port Angeles</div>
-    <div class="ai-links" style="margin-top:8px;margin-bottom:12px">
-      <a href="https://www.olympiclodge.com/" target="_blank" rel="noopener noreferrer">Website ↗</a>
-      <a href="https://www.google.com/search?q=Olympic+Lodge+Port+Angeles" target="_blank" rel="noopener noreferrer">Google It ↗</a>
-    </div>
-
-    <div class="discipline-cards cols-5">
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Discover</div>
-        <ul class="stage-actions">
-          <li>OTA ads steal direct bookings</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Book</div>
-        <ul class="stage-actions">
-          <li>Not visible on Google Hotels</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left;background:#f6f9fc">
-        <div class="discipline-name" style="color:var(--dim)">Arrival</div>
-        <ul class="stage-actions">
-          <li style="color:var(--dim)">Not assessed</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left;background:#f6f9fc">
-        <div class="discipline-name" style="color:var(--dim)">Stay</div>
-        <ul class="stage-actions">
-          <li style="color:var(--dim)">Not assessed</li>
-        </ul>
-      </div>
-      <div class="discipline-card" style="text-align:left">
-        <div class="discipline-name">Reconnect</div>
-        <ul class="stage-actions">
-          <li>1,100+ reviews — zero responses</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="margin-top:20px;font-size:14px;font-weight:400;color:var(--dim)">
-      Full assessment can be shared with property contact upon request.
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 6: Sekiu Bay + Swan Hotel ═══ -->
-  <div class="slide" data-slide="6">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">Two more properties — same framework, different gaps</div>
-    <div class="cols-2" style="margin-top:28px">
-      <div>
-        <div class="prop-card">
-          <div class="prop-name">Sekiu Bay Motel</div>
-          <div class="prop-loc">Sekiu, WA — micro property</div>
-          <div class="finding">No Book Now button on the homepage</div>
-          <div class="finding">Listed as "Bay Motel" on every OTA — name fragmentation</div>
-          <div class="finding" style="color:var(--amber)"><a href="https://news.airbnb.com/airbnb-reveals-america-off-the-map/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">#1 on Airbnb's "America Off-the-Map" 2026</a> — not on Airbnb</div>
-        </div>
-        <div class="ai-links" style="justify-content:center;margin-top:16px">
-          <a href="https://sekiubaymotel.com/" target="_blank" rel="noopener noreferrer">Website ↗</a>
-          <a href="https://www.google.com/search?q=Sekiu+Bay+Motel" target="_blank" rel="noopener noreferrer">Google It ↗</a>
-        </div>
-      </div>
-      <div>
-        <div class="prop-card">
-          <div class="prop-name">Swan Hotel</div>
-          <div class="prop-loc">Port Townsend, WA — boutique</div>
-          <div class="finding">Mobile popup blocks the Book Now button entirely</div>
-          <div class="finding">Wholesalers undercutting direct rate by <span style="color:var(--red)">$51</span></div>
-          <div class="finding">Nonprofit-owned — compelling story not told online</div>
-        </div>
-        <div class="ai-links" style="justify-content:center;margin-top:16px">
-          <a href="https://theswanhotel.com/" target="_blank" rel="noopener noreferrer">Website ↗</a>
-          <a href="https://www.google.com/search?q=Swan+Hotel+Port+Townsend" target="_blank" rel="noopener noreferrer">Google It ↗</a>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:40px;font-size:14px;font-weight:400;color:var(--dim)">
-      Full assessment can be shared with property contact upon request.
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 7: The Offer ═══ -->
-  <div class="slide" data-slide="7">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">For WHA Members</div>
-
-    <div class="offer-grid">
-      <div>
-        <div style="font-size:14px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">What's included</div>
-        <div class="product-card" style="max-width:none">
-          <div class="product-name">Revenue Growth Workshop</div>
-        <ul class="product-includes">
-          <li>Guest journey diagnostic across all 5 stages</li>
-          <li>Operational gap review with prioritized fixes</li>
-          <li>Scorecard + 90-day action plan</li>
-        </ul>
-        <div class="product-pricing">
-          <div class="product-price">$593</div>
-          <div class="product-price-original">$697</div>
-          <div class="product-discount">WHA 15% OFF</div>
-        </div>
-        </div>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div style="font-size:14px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:4px">After the workshop</div>
-        <div class="path-card">
-          <div class="path-num">PATH 1</div>
-          <div class="path-title">DIY</div>
-          <div class="path-desc">Keep the plan. No obligation. Go execute.</div>
-        </div>
-        <div class="path-card">
-          <div class="path-num">PATH 2</div>
-          <div class="path-title">We execute</div>
-          <div class="path-desc">We build a custom scope and quote to execute the plan.</div>
-        </div>
-        <div class="path-card">
-          <div class="path-num">PATH 3</div>
-          <div class="path-title">Full refund</div>
-          <div class="path-desc">Don't love it? Money back. No questions.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 8: Make Them Smarter ═══ -->
-  <div class="slide" data-slide="8">
-    <div style="margin-bottom:24px"><img src="logo.png" alt="Lights On Digital" style="height:32px;filter:invert(1)"></div>
-    <div class="slide-title">One thing you can share with any member right now</div>
-
-    <div class="prompt-block" id="promptBlock" onclick="copyPrompt()">
-      <button class="copy-btn" id="copyBtn">Copy</button>
-      "Check my hotel website using https://github.com/lightson-digital/hotel-website-checkup"
-    </div>
-
-    <div style="margin-top:24px;font-size:17px;font-weight:300;color:var(--muted);max-width:700px;line-height:1.6">
-      Paste + any hotel URL → 2-minute snapshot
-    </div>
-    <div style="margin-top:12px;font-size:14px;font-weight:400;color:var(--dim)">
-      Free. Instant. Makes you the person who brought them something useful.
-    </div>
-    <div class="ai-links">
-      <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a>
-      <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude ↗</a>
-      <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">Gemini ↗</a>
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 9: One-Pager (embedded) ═══ -->
-  <div class="slide" data-slide="9" style="padding:32px;justify-content:center;align-items:center;overflow:auto">
-    <iframe
-      class="onepager-frame"
-      src="One-pager/One-pager.html"
-      title="Revenue Growth Workshop — printable one-pager"
-      loading="lazy"></iframe>
-  </div>
-
-</div>
 
 <!-- ── Navigation Bar ── -->
 <div class="nav-bar">
-  <div class="logo"><img src="logo.png" alt="Lights On Digital"></div>
-  <div class="slide-num" id="slideNum">1 / 8</div>
+  <div class="logo"><a href="https://lightson.co" target="_blank" rel="noopener"><img src="logo.png" alt="Lights On Digital"></a></div>
+  <div class="slide-num" id="slideNum">Cover</div>
 </div>
 <div class="progress-track" id="progress"></div>
 
 <!-- ── Speaker Notes Panel ── -->
 <div class="notes-panel" id="notesPanel">
-  <div class="notes-header">Speaker Notes — press N to hide</div>
+  <div class="notes-header">Speaker Notes . press N to hide</div>
   <div id="notesContent"></div>
 </div>
 
@@ -882,82 +759,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (pctSlider) { pctSlider.addEventListener('input', updateCalc); }
 });
 
-function copyPrompt() {
-  const text = 'Check my hotel website using https://github.com/lightson-digital/hotel-website-checkup';
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-
 const NOTES = {
-  0: `<p>Cover slide — up while Robin introduces you. Don't talk over it.</p>
-<p>When Robin finishes, say: <strong>"Thanks Robin. I'm Kin Sio, CEO of Lights On Digital. We just joined WHA as an allied member, and I'm excited to show you what that means for your hotel members."</strong></p>
-<p>Gesture to the slide: "By the end of the next 15 minutes, you'll walk away with three things — a framework for diagnosing any hotel's revenue gaps, a free tool you can share with members today, and a partner you can send them to when they need help."</p>
+  0: `<p>Cover slide. Up while you're being introduced. Don't talk over it.</p>
+<p>When intro lands, open: <strong>"I'm Kin Sio, CEO of Lights On Digital. In the next 20 minutes, you'll walk out of here with an AI teammate already running on your business."</strong></p>
+<p>"Most AI seminars sell you a tool. This one hands you the team. Six skills, free, MIT licensed, on GitHub. We'll run one live in under three minutes on a real Hawaiʻi tour operator."</p>
 <p class="note-transition">Then advance → Slide 1 (the provocation).</p>`,
 
-  1: `<p>Open with the question — let it land. Pause.</p>
-<p class="note-action">"Quick show of hands — how many of you have a member right now who's told you bookings are down or flat this year?"</p>
-<p>The reality: most of that 5-10% is already sitting there. It's in boring fixes nobody's looking at — rate parity gaps, booking flow friction, OTA channels that aren't optimized, review responses that never happened.</p>
-<p>These aren't sexy problems. But they're the ones that actually move the number.</p>
-<p class="note-transition">Transition: "The good news — it doesn't take a miracle. It takes fixing the boring stuff. That's what we do."</p>`,
+  1: `<p>Land the metaphor. Pause after "Dementia."</p>
+<p>"Most operators are using AI like a fancy search engine. Ask, get answer, close tab, business forgotten. Every chat starts from zero. The AI never learns who you are."</p>
+<p>"A teammate is different. You teach it once. You give it your SOP, your context, your voice. From then on it knows who you are. That's the unlock."</p>
+<p class="note-transition">Transition: "There are five stages where an AI teammate earns its keep. Let me show you the board."</p>`,
 
-  2: `<p>Quick and punchy — 45 seconds. Credibility, not a sales pitch.</p>
-<p>"We're not a marketing agency that runs ads and sends you a report. We're not a revenue consultant who hands you a spreadsheet and disappears."</p>
-<p>"Most hotels hire 3-4 separate vendors — one for revenue, one for marketing, one for their website, one for OTAs. None of them talk to each other. We're one team running the whole commercial engine."</p>
-<p class="note-transition">Transition: "Let me show you how we look at every hotel — the same way, every time, regardless of size."</p>`,
+  2: `<p>The game board. Walk left to right: Discover, Book, Pre-arrival, Experience, Reconnect. Foundation card (Context) sits underneath because every other skill reuses it.</p>
+<p>"Each tile is a question your business is already answering, or failing to. Each tile is a skill file you can run today."</p>
+<p class="note-action">Pick a tile. Click "Run Findability Check" (or whichever tile reads the room). It opens in Claude. Paste a real Hawaiʻi tour-operator URL. Live demo runs.</p>
+<p><strong>If Wi-Fi flakes or the live run hangs:</strong> click the "Live demo" pill bottom-right for the Kahuku Farms static fallback.</p>
+<p>"Notice what just happened. I didn't write a prompt. I ran a skill. The skill is the teammate. The output you're looking at is what gets pasted into the AI project memory, so the next skill knows the business already."</p>
+<p class="note-transition">Transition: "And you can run that on your own business tonight."</p>`,
 
-  3: `<p>"A 20-room motel and a 200-room resort have the same five stages — the gaps just show up in different places."</p>
-<p>"When a member tells you 'we're not getting enough bookings,' they're stuck in Discover. 'Full on Expedia but website gets nothing' — that's Book. 'Great reviews but nobody comes back' — that's Reconnect."</p>
-<p class="note-action">ASK: "Which of these five stages do you hear your members complain about most?" (Pause 7 seconds)</p>
-<p><strong>Discover details:</strong> Search engines, Google Hotel Ads, OTA listings, AI chatbots (ChatGPT, Claude, Gemini), social media, paid ads</p>
-<p><strong>Book details:</strong> Rate integrity, website conversion, OTA vs. direct mix, optimized rates</p>
-<p><strong>Arrival details:</strong> Pre-arrival comms, preference capture, upsells</p>
-<p><strong>Stay details:</strong> Email capture, upsells, review capture, operational feedback</p>
-<p><strong>Reconnect details:</strong> Email marketing, repeat visits, review management</p>
-<p class="note-transition">Transition: "This framework is the method. Now let me show you what it looks like in practice — first a case study, then three of your own WA properties."</p>`,
-
-  4: `<p><strong>Situation:</strong> Independent beachfront resort in Naples, FL. Revenue flat, OTAs eating margin, no active revenue management. Direct booking mix at ~50% (should be 70%+).</p>
-<p><strong>Discover:</strong> Launched Google Ads (brand + non-brand), Meta retargeting. Leveraged Turtle Club restaurant's 41K monthly page views (9:1 awareness advantage over the hotel).</p>
-<p><strong>Book:</strong> Daily rate management, opened OTA channels strategically ($1,200 Expedia ad credit in soft periods), enforced rate parity, surfaced Best Rate Guarantee.</p>
-<p><strong>Arrival:</strong> Created packages: Extended Stay, Daily Dine, Priority Beach Access, Turtle Rum Club.</p>
-<p><strong>Reconnect:</strong> Activated 30,000-contact email list (previously sitting dormant), automated post-stay sequences.</p>
-<p>"For a smaller property, this same approach yields 4-5% revenue lift — that's the 5% we talked about on slide 1."</p>
-<p>"None of this was magic. Daily rate management. Fixing OTA listings. Turning on an email list that already existed. <strong>Boring fixes.</strong>"</p>
-<p class="note-transition">Transition: "That's Florida. Let me show you what this looks like for three WA properties Robin suggested."</p>`,
-
-  5: `<p><strong>Discover:</strong> Instagram 1-2x/week (benchmark 3-5x), all nature photos, barely any property content. 944 followers, 0.4-1.4% engagement. No paid ads. Invisible.</p>
-<p><strong>Book:</strong> Google "Olympic Lodge Port Angeles" — 14 OTA channels bidding on Hotel Ads. Their own website? Not there. Every booking pays 15-25% commission that could be $0.</p>
-<p><strong>Rate parity:</strong> OTAs at $183, 52% premium over Red Lion ($120), justified by 4.5 stars. Can't capitalize if guests can't book direct.</p>
-<p><strong>Reconnect:</strong> 4.5 stars, 1,146 Google reviews. Zero responses.</p>
-<p>"None of these require a renovation. Google Hotel Ads — free. Review responses — free. Instagram — free. Tuesday-afternoon fixes."</p>
-<p>"<strong>This is what 5% looks like.</strong> Not one big thing. Ten small things nobody's doing."</p>
-<p class="note-action">ASK: "Anything here surprise you? Or does this feel familiar from your members?" (Low-stakes reset. Pause.)</p>`,
-
-  6: `<p><strong>Sekiu Bay:</strong> Static HTML from mid-2000s. Name fragmentation breaks rate shopping. The Airbnb off-the-map stat is the surprise moment — lean into it.</p>
-<p><strong>Swan:</strong> Nonprofit-owned (Northwest Maritime Center) — revenue funds maritime education. That story isn't being told anywhere.</p>
-<p>"20-room motel, boutique hotel, 105-room lodge — different sizes, different markets, same kinds of gaps."</p>
-<p>"The framework works at every scale. The fixes are different, but the diagnosis is the same."</p>
-<p class="note-transition">Transition: "So how do we work with your members?"</p>`,
-
-  7: `<p><strong>Session 1:</strong> Walk through all five stages. Find the gaps. Score each one.</p>
-<p><strong>Session 2:</strong> Prioritized action plan. Quick wins first, then bigger moves.</p>
-<p>Co-built with the operator — not handed over.</p>
-<p>"This isn't a sales call disguised as a workshop. They walk away with a real plan either way."</p>
-<p>"We've never had to give a refund. When you build the plan with the operator, they own it."</p>
-<p>"All we need: a hotel name and a website URL."</p>`,
-
-  8: `<p class="note-action">DROP THE PROMPT IN ZOOM CHAT NOW</p>
-<p>"When they ask 'where did you find this?' — that's your intro to us."</p>
-<p><strong>CLOSE (callback):</strong> "Remember the 5% question I opened with? That's not hypothetical. For Olympic Lodge, Google Hotel Ads, review responses, social — those are free. The math works. Your members just need someone to show them where to look."</p>
-<p><strong>SALUTE:</strong> "You're the people they trust. Now you've got a tool and a partner to back it up."</p>
-<p>(Pause. Let it land. Then: "Happy to take any questions.")</p>`,
+  3: `<p>The close. Reframe the QR as the take-home.</p>
+<p>"You came in here for an AI teammate. You're walking out with six. Scan the QR, hit send, all six skill files land in your inbox. Or grab them straight off GitHub."</p>
+<p>"Lights On is a hospitality-focused commercial strategy agency. We work with independent and boutique operators across Hawaiʻi. The skills you saw tonight are the same ones we run for clients every week. You can run them yourself, or you can call us."</p>
+<p class="note-action">Final beat: "Stick around. Drinks are on Nutmeg. I'll be here for questions."</p>
+<p>(Pause. Let it land.)</p>`,
 };
 
 const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length; // cover (0) + 8 content slides
+const totalSlides = slides.length; // cover (0) + 3 content slides
 let current = 0;
 let notesVisible = false;
 
@@ -972,9 +800,9 @@ function goTo(idx) {
 function updateUI() {
   const ds = slides[current].dataset.slide;
   const isCover = ds === '0';
-  const display = isCover ? 'Cover' : `${ds} / 9`;
+  const display = isCover ? 'Cover' : `${ds} / 3`;
   document.getElementById('slideNum').textContent = display;
-  const pct = (parseInt(ds) / 9) * 100;
+  const pct = (parseInt(ds) / 3) * 100;
   document.getElementById('progress').style.width = pct + '%';
   document.getElementById('notesContent').innerHTML = NOTES[parseInt(ds)] || '<p style="color:var(--dim)">No speaker notes for this slide.</p>';
 }
@@ -999,7 +827,9 @@ document.getElementById('deck').addEventListener('click', e => {
 const hint = document.getElementById('keyHint');
 if (hint) setTimeout(() => { hint.style.opacity = '0'; }, 5000);
 
-updateUI();
+const initial = parseInt(location.hash.replace('#','')) || 0;
+if (initial > 0 && initial < totalSlides) goTo(initial);
+else updateUI();
 </script>
 </body>
 </html>

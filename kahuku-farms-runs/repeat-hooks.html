@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repeat Hooks · Kahuku Farms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --heading: #061b31;
+    --body: #273951;
+    --label: #273951;
+    --accent: #533afd;
+    --accent-soft: rgba(83, 58, 253, 0.08);
+    --border: #e5edf5;
+    --border-soft: #f0f4f9;
+    --bg: #ffffff;
+    --surface: #fefefe;
+    --yes: #108c3d;
+    --no: #ea2261;
+    --shadow-card: rgba(50,50,93,0.10) 0px 12px 20px 0px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 0 32px;
+    color: var(--heading);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01";
+  }
+  .stamp {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(83,58,253,0.08);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0 0 4px;
+    color: var(--heading);
+  }
+  .deck {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--body);
+    margin: 0 0 12px;
+    max-width: 720px;
+    line-height: 1.55;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .section { margin-bottom: 64px; }
+
+  /* Audit grid */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .audit-cell {
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .audit-cell .name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--label);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .audit-cell .answer {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--heading);
+  }
+  .audit-cell .answer.yes { color: var(--yes); }
+  .audit-cell .answer.no { color: var(--no); }
+  .audit-cell .detail {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.55;
+  }
+
+  /* Lifecycle timeline (the design centerpiece) */
+  .timeline-frame {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--accent-soft) 0%, rgba(255,255,255,0) 60%);
+    padding: 36px 28px 32px;
+  }
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+  .milestone {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .milestone .marker {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    margin: 14px auto 0;
+  }
+  .milestone .when {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+  }
+  .milestone .job {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--body);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -8px;
+  }
+  .milestone .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+  .milestone .subject {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--label);
+    line-height: 1.4;
+  }
+  .milestone .body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.6;
+  }
+  .milestone .cta {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-top: auto;
+    line-height: 1.5;
+  }
+
+  /* Email mockups */
+  .email {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .email .envelope-bar {
+    border-bottom: 1px solid var(--border-soft);
+    padding: 10px 22px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    background: var(--surface);
+  }
+  .email .envelope-body {
+    padding: 22px 24px 20px;
+  }
+  .email .subject-line {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--heading);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .email .subject-line::before {
+    content: "Subject: ";
+    color: var(--body);
+    font-weight: 500;
+  }
+  .email .body-copy {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .email .cta-link {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  /* Referral mechanics row */
+  .mechanics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .mechanic {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .mechanic .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.35;
+  }
+  .mechanic .description {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.55;
+  }
+  .mechanic .pills {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+  }
+  .pill {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--label);
+    background: var(--bg);
+  }
+  .pill .pill-label {
+    color: var(--body);
+    margin-right: 4px;
+  }
+
+  /* Operational ideas */
+  .ideas {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  .idea {
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .idea:last-child { border-bottom: none; }
+  .idea .text {
+    font-size: 16px;
+    color: var(--heading);
+    flex: 1;
+    line-height: 1.55;
+  }
+  .idea .effort {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--body);
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: #425466;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 760px) {
+    body { margin: 32px auto; padding: 0 20px; }
+    h1 { font-size: 32px; letter-spacing: -0.6px; }
+    .audit-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .timeline::before { display: none; }
+    .timeline-frame { padding: 24px 18px; }
+    .mechanics { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Reconnect · Repeat Hooks</div>
+  <h1>Kahuku Farms</h1>
+  <p class="deck">After the wagon ride ends and the banana bread is gone, what brings the ʻohana back? A four-touchpoint plan, three reactivation starters, and three referral mechanics, drafted in Kahuku Farms's voice.</p>
+  <span class="stamp">Powered by Lights On · ran on 2026-05-06</span>
+
+  <!-- Section 1: Touchpoint audit -->
+  <div class="section">
+    <div class="section-label">Post-experience touchpoint audit</div>
+    <div class="audit-grid">
+      <div class="audit-cell">
+        <div class="name">Email signup on homepage</div>
+        <div class="answer yes">Yes</div>
+        <div class="detail">Footer "Sign up &amp; Save" form, 10% off first order, café excluded. Not above the fold, no hero capture, no exit-intent.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="name">Repeat or referral program</div>
+        <div class="answer yes">Yes, partial</div>
+        <div class="detail">Kamaʻāina Plus rate ($40 keiki, $50 adult, "Support Local" promo code, free farm lunch tote, Hawaiʻi State ID required). No gift card SKU. No friend code. No returning-guest auto-rate.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="name">Active blog or newsletter</div>
+        <div class="answer no">No</div>
+        <div class="detail">"In the Media" page last updated 2025-04-22, more than 12 months stale. No regular newsletter cadence visible.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="name">GBP posts in last 30 days</div>
+        <div class="answer no">Not verified</div>
+        <div class="detail">Treat as a free repeat hook the team can ship this week, weekly post on this week's harvest, café special, or wagon-tour photo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Lifecycle drip timeline (the design centerpiece) -->
+  <div class="section">
+    <div class="section-label">Lifecycle drip plan, four touchpoints</div>
+    <div class="timeline-frame">
+      <div class="timeline">
+
+        <div class="milestone">
+          <div class="marker"></div>
+          <div class="when">Day 1</div>
+          <div class="job">Thank-you and photo</div>
+          <div class="card">
+            <div class="subject">Mahalo from the Kahuku Farms ʻohana</div>
+            <div class="body">"Thanks for spending the afternoon on the farm with us. Here's the photo from your wagon ride, plus the recipe for the banana bread, in case you want to bring a little of the farm home. Live fresh, love local, be aloha."</div>
+            <div class="cta">→ Download your photo</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="marker"></div>
+          <div class="when">Week 1</div>
+          <div class="job">Review and friend-seed</div>
+          <div class="card">
+            <div class="subject">One question, then we'll leave you alone</div>
+            <div class="body">"How was the tour? If it found its way into your happy place, a quick line on Google means the world to a 4th-generation family farm. And if anyone you know is heading to the North Shore, send them our way."</div>
+            <div class="cta">→ Leave a quick review</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="marker"></div>
+          <div class="when">Month 3</div>
+          <div class="job">Different product, café return</div>
+          <div class="card">
+            <div class="subject">You came for the tour, come back for the banana bread</div>
+            <div class="body">"You don't need a tour ticket to walk into the café. The Grilled Banana Bread, the Liliko‘i Butter Mochi, the Hawaiian Açaí Bowl, all walk-in, no reservation. Or stay later, Fireside at the Farm runs after-hours under the stars."</div>
+            <div class="cta">→ See the café menu</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="marker"></div>
+          <div class="when">Season 2</div>
+          <div class="job">Shoulder-season comeback</div>
+          <div class="card">
+            <div class="subject">The fields look different right now</div>
+            <div class="body">"Shoulder season on the North Shore (Sept to Nov, Apr to May) is the farm's quiet stretch. Different fruit on the trees, smaller groups in the wagon, the same ʻohana welcome. Kamaʻāina Plus rate honored on your return."</div>
+            <div class="cta">→ Book a shoulder-season visit</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Reactivation email starters -->
+  <div class="section">
+    <div class="section-label">Three reactivation email starters</div>
+
+    <div class="email">
+      <div class="envelope-bar">Different season</div>
+      <div class="envelope-body">
+        <div class="subject-line">The mango trees are dropping again</div>
+        <div class="body-copy">Things look different on 140 acres in May. The mangoes are coming in, the apple bananas are heavy, and the wagon goes a little slower because we keep stopping to taste. If it's been a year since you visited, it's a different farm right now.</div>
+        <div class="cta-link">→ Book the wagon tour at the Kamaʻāina Plus rate</div>
+      </div>
+    </div>
+
+    <div class="email">
+      <div class="envelope-bar">Different product cross-sell, café return</div>
+      <div class="envelope-body">
+        <div class="subject-line">You came for the tour, come back for the banana bread</div>
+        <div class="body-copy">Most of the people who do the tour tell us afterward they wish they'd stayed for lunch. You don't need to do the tour again to walk into the café. Grilled Banana Bread, Açaí Bowl, Liliko‘i Butter Mochi, all walk-in, all farm-to-table.</div>
+        <div class="cta-link">→ See this week's café menu</div>
+      </div>
+    </div>
+
+    <div class="email">
+      <div class="envelope-bar">Referral nudge</div>
+      <div class="envelope-body">
+        <div class="subject-line">Know someone heading to the North Shore?</div>
+        <div class="body-copy">If a friend is planning a Hawaiʻi trip and you'd send them to the farm, here's a Kahuku Farms gift card they can use at the café, the shop, or the tour. It's the easiest way to put a little of the ʻohana into their trip before they land.</div>
+        <div class="cta-link">→ Send a Kahuku Farms gift card</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Referral mechanics -->
+  <div class="section">
+    <div class="section-label">Three referral mechanics to ship</div>
+    <div class="mechanics">
+      <div class="mechanic">
+        <div class="title">Gift card SKU on the Shopify store</div>
+        <div class="description">A digital gift card lives next to the macadamia chocolate and the apple-banana bread mix. Existing guests buy one for a friend headed to Oʻahu, redeemable across tour, café, and shop. Lowest-friction referral and the stack already supports it.</div>
+        <div class="pills">
+          <span class="pill"><span class="pill-label">Effort</span>Low</span>
+          <span class="pill"><span class="pill-label">Revenue</span>Mid</span>
+        </div>
+      </div>
+      <div class="mechanic">
+        <div class="title">Photo-share post-tour SMS with friend code</div>
+        <div class="description">After the wagon ride, send guests their photo by SMS along with a "share with someone planning a Hawaiʻi trip" line and a one-time friend code (10% off tour 1, free lunch tote). Catches them at peak enthusiasm, doubles as social proof.</div>
+        <div class="pills">
+          <span class="pill"><span class="pill-label">Effort</span>Low</span>
+          <span class="pill"><span class="pill-label">Revenue</span>Mid</span>
+        </div>
+      </div>
+      <div class="mechanic">
+        <div class="title">Kamaʻāina-Plus extension, +1 friend at rate</div>
+        <div class="description">Returning kamaʻāina who book a second tour bring one friend on at the Kamaʻāina Plus rate, no Hawaiʻi ID required for the +1. Compounds the kamaʻāina program already running, turns local repeat into local-plus-mainland-friend mix.</div>
+        <div class="pills">
+          <span class="pill"><span class="pill-label">Effort</span>Mid</span>
+          <span class="pill"><span class="pill-label">Revenue</span>Mid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Operational repeat ideas -->
+  <div class="section">
+    <div class="section-label">Three repeat-visit ideas you can ship next week</div>
+    <div class="ideas">
+      <div class="idea">
+        <div class="text">Send the wagon-ride photo by email the same day, you already have the camera, you already have the email, the send is the only missing step.</div>
+        <div class="effort">Low effort</div>
+      </div>
+      <div class="idea">
+        <div class="text">Restart the GBP weekly post (Monday, this week's harvest, café special, or Fireside dates), free distribution and the most-skipped repeat hook for tour operators.</div>
+        <div class="effort">Low effort</div>
+      </div>
+      <div class="idea">
+        <div class="text">One quarterly newsletter (4 a year), what's in season, what's new at the café, Fireside dates, kamaʻāina events. Mailchimp, the list already exists from the 10%-off signup.</div>
+        <div class="effort">Mid effort</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Built with the Hospitality Business Skills teammate · github.com/lightson-digital/hospitality-business-skills</span>
+    <a href="https://lightson.co" target="_blank" rel="noopener">Powered by Lights On</a>
+  </div>
+
+</body>
+</html>

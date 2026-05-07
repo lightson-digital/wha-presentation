@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking Edge · Kahuku Farms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Source+Serif+4:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --heading: #061b31;
+    --label: #273951;
+    --body: #273951;
+    --accent: #533afd;
+    --border: #e5edf5;
+    --border-soft: #f0f4f9;
+    --bg: #ffffff;
+    --success-bg: rgba(21,190,83,0.10);
+    --success-text: #108c3d;
+    --lemon-bg: rgba(155,104,41,0.10);
+    --lemon-text: #9b6829;
+    --ruby-bg: rgba(234,34,97,0.10);
+    --ruby-text: #ea2261;
+    --shadow-feature: rgba(50,50,93,0.10) 0px 12px 20px 0px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, 'SF Pro Display', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    max-width: 1040px;
+    margin: 40px auto;
+    padding: 0 32px;
+    color: var(--heading);
+    background: var(--bg);
+    line-height: 1.55;
+    font-feature-settings: "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  .stamp {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(83,58,253,0.08);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    margin: 0 0 4px;
+    color: var(--heading);
+  }
+  .sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--body);
+    margin-bottom: 12px;
+    max-width: 720px;
+    line-height: 1.5;
+  }
+  .section-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    color: var(--heading);
+    margin: 0 0 18px;
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    background: var(--bg);
+    margin-bottom: 20px;
+  }
+  .card.featured {
+    box-shadow: var(--shadow-feature);
+  }
+  .note {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .platform {
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: left;
+  }
+  .platform .name {
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .platform .rating {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--heading);
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .platform .count {
+    font-size: 13px;
+    color: var(--body);
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+  .platform .scrape {
+    font-size: 10px;
+    color: var(--body);
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .theme {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .theme:last-child { border-bottom: none; }
+  .theme:first-child { padding-top: 4px; }
+  .theme .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .theme .name {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--heading);
+  }
+  .theme .meta {
+    font-size: 12px;
+    color: var(--body);
+    font-feature-settings: "tnum";
+    white-space: nowrap;
+  }
+  .chip {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    letter-spacing: 0.04em;
+  }
+  .chip.pos { background: var(--success-bg); color: var(--success-text); }
+  .chip.mix { background: var(--lemon-bg); color: var(--lemon-text); }
+  .chip.neg { background: var(--ruby-bg); color: var(--ruby-text); }
+  .quote {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--label);
+    line-height: 1.55;
+    padding: 4px 0 4px 16px;
+    border-left: 2px solid var(--accent);
+    margin-top: 6px;
+  }
+  .quote .attr {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--body);
+    display: block;
+    margin-top: 6px;
+  }
+  .gap {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .gap:last-child { border-bottom: none; }
+  .gap:first-child { padding-top: 4px; }
+  .gap .q {
+    font-size: 16px;
+    color: var(--heading);
+    font-weight: 400;
+  }
+  .gap .a {
+    font-size: 16px;
+    color: var(--body);
+    margin-top: 4px;
+    line-height: 1.55;
+  }
+  .parity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .parity-col h3 {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--label);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .parity-item {
+    font-size: 16px;
+    color: var(--heading);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-soft);
+    line-height: 1.5;
+  }
+  .parity-item:last-child { border-bottom: none; }
+  .parity-item .source {
+    font-size: 13px;
+    color: var(--body);
+    display: block;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .fix {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border-soft);
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+  }
+  .fix:last-child { border-bottom: none; }
+  .fix:first-child { padding-top: 4px; }
+  .fix .num {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--accent);
+    font-feature-settings: "tnum";
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .fix .what {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--heading);
+    margin: 0 0 6px;
+    line-height: 1.35;
+  }
+  .fix .where {
+    font-size: 16px;
+    color: var(--body);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .fix .pills {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .pill {
+    font-size: 11px;
+    color: var(--label);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    letter-spacing: 0.04em;
+  }
+  .fix .evidence {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--label);
+    line-height: 1.55;
+    padding: 4px 0 4px 14px;
+    border-left: 2px solid var(--border);
+    margin-top: 4px;
+  }
+  .fix .evidence .attr {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--body);
+    display: block;
+    margin-top: 4px;
+  }
+  .footer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #425466;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 700px) {
+    body { margin: 24px auto; }
+    h1 { font-size: 32px; }
+    .platforms { grid-template-columns: repeat(2, 1fr); }
+    .parity { grid-template-columns: 1fr; gap: 16px; }
+    .card { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Book · Booking Edge</div>
+  <h1>Kahuku Farms</h1>
+  <div class="sub">Three signals, one playbook. What guests say, how you stack up against Lokoea Farms and Dole Plantation, and what to fix on the booking page this week.</div>
+  <div class="stamp">Powered by Lights On · ran on 2026-05-06</div>
+
+  <div class="platforms">
+    <div class="platform"><div class="name">TripAdvisor</div><div class="rating">4.8</div><div class="count">505 reviews</div></div>
+    <div class="platform"><div class="name">Yelp</div><div class="rating">4.8</div><div class="count">965 reviews</div><div class="scrape">scrape blocked, count via search</div></div>
+    <div class="platform"><div class="name">Aggregator</div><div class="rating">4.9</div><div class="count">323 ratings</div><div class="scrape">Restaurantji, Google-fed</div></div>
+    <div class="platform"><div class="name">Viator / GYG</div><div class="rating">N/A</div><div class="count">listings live</div><div class="scrape">scrape blocked, ratings not visible</div></div>
+  </div>
+
+  <p class="note">Sample size, 20 mixed reviews read across TripAdvisor (attraction + cafe), with cross-reference from Honolulu Magazine and a 2026 traveler blog. Yelp, Viator, GetYourGuide all returned 403 to direct fetch, so Yelp count comes from search snippet and Viator/GetYourGuide ratings are not surfaced. Direct Google Reviews count was not available without API. The 20-review sample is enough to surface themes but the operator should pull the full Google and Yelp threads next pass.</p>
+
+  <div class="card featured">
+    <span class="section-label">Signal 1, Review voice</span>
+    <h2>What guests actually say</h2>
+
+    <div class="theme">
+      <div class="head"><div class="name">Family-led, 4 generations, real working farm. The story is the unlock.</div><div class="meta">14 of 20 <span class="chip pos">positive</span></div></div>
+      <div class="quote">"It's a family business still being run by the granddaughter of the founder, and everyone encountered at Kahuku Farms shares that passion and is really friendly."<span class="attr">TripAdvisor reviewer, summarized in TA review feed</span></div>
+      <div class="quote">"This was one of the highlights of our Oahu trip... better than the Dole plantation."<span class="attr">JulieMeagan, Detroit MI, TripAdvisor</span></div>
+    </div>
+
+    <div class="theme">
+      <div class="head"><div class="name">Tractor-wagon ride with tastings is the experience guests remember.</div><div class="meta">12 of 20 <span class="chip pos">positive</span></div></div>
+      <div class="quote">"The 1.75 hour farm tour with tastings of fruits grown there and chocolates made from their cacao trees was exceptional."<span class="attr">A B, TripAdvisor, Feb 2026</span></div>
+      <div class="quote">"We took a wagon and went to different spots on the farm and tasted different fruits, drinks and chocolate."<span class="attr">rebeccadw2016, TripAdvisor, June 2025</span></div>
+    </div>
+
+    <div class="theme">
+      <div class="head"><div class="name">Cafe items get named, banana bread and mochi do the work.</div><div class="meta">10 of 20 <span class="chip pos">positive</span></div></div>
+      <div class="quote">"Their Grilled Banana Bread is a dream. Delicately warmed and perfectly toasty, and then generously layered with their farm-to-table vanilla caramel and vanilla haupia."<span class="attr">Kim M., Honolulu HI, on-site testimonial</span></div>
+      <div class="quote">"High quality, affordable, fresh, delicious food... Excellent, friendly, efficient service."<span class="attr">CinnaPatty, Iowa, TripAdvisor cafe page, Jan 2025</span></div>
+    </div>
+
+    <div class="theme">
+      <div class="head"><div class="name">Tour length is unclear until you click into a third-party blog.</div><div class="meta">5 of 20 <span class="chip mix">mixed</span></div></div>
+      <div class="quote">"Excellent tour... 1 hour and 15 minutes."<span class="attr">Vikram B, New York City, TripAdvisor</span></div>
+      <div class="quote">"The Grand Wagon Tour lasts approximately 90 minutes, including two tasting stops and farm field rides."<span class="attr">HawaiiTravelWithKids, 2026 guide blog, not the operator's site</span></div>
+    </div>
+
+    <div class="theme">
+      <div class="head"><div class="name">Mochi and banana bread sell out by mid-afternoon, guests are warned by other guests, not the site.</div><div class="meta">4 of 20 <span class="chip neg">negative when missed</span></div></div>
+      <div class="quote">"Another pit stop to Kahuku Farms for lunch, Another example of a perfect afternoon... Do remember to get there early to be able to experience the mochi before it sells out."<span class="attr">Alex D., Hayward CA, on-site testimonial</span></div>
+      <div class="quote">"By the time wife got to Panini, bottom was soaked with dressing, making the sandwich barely eatable."<span class="attr">BrianS612, Sterling VA, TripAdvisor, 3 stars</span></div>
+    </div>
+
+    <div class="theme">
+      <div class="head"><div class="name">Tour is great but mobility on the wagon is a real consideration. Not addressed on site.</div><div class="meta">3 of 20 <span class="chip neg">negative</span></div></div>
+      <div class="quote">"The wagon tour requires climbing a few steps to get on and off the wagon, so mobility can be a consideration."<span class="attr">HawaiiTravelWithKids, 2026 guide blog</span></div>
+      <div class="quote">"Tour accessibility, one reviewer noted tours may not be ideal for those with mobility concerns due to farm terrain."<span class="attr">Restaurantji aggregator review feed</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="section-label">Signal 1, FAQ gaps</span>
+    <h2>Questions guests ask that the website doesn't answer</h2>
+    <div class="gap"><div class="q">How long is the tour?</div><div class="a">Came up in 5 of 20 sampled reviews. The Tours page does not state duration. Travelers slot this into a North Shore loop and need a number before they book.</div></div>
+    <div class="gap"><div class="q">What if it rains, or what if I need to reschedule?</div><div class="a">Tours page has no weather, cancellation, or refund line. Footer links to Refund Policy but it is not in front of the booking button. Lokoea Farms publishes both through Viator.</div></div>
+    <div class="gap"><div class="q">Is the wagon stroller-friendly, can grandma climb on, what about kids under 5?</div><div class="a">Came up in 3 of 20 sampled reviews and in the 2026 family blog. Site says nothing.</div></div>
+    <div class="gap"><div class="q">Will the tour run if there are only two of us?</div><div class="a">Not addressed. Lokoea Farms' Viator listing publishes a minimum-traveler refund clause. Kahuku Farms does not.</div></div>
+    <div class="gap"><div class="q">If I drove from Honolulu, will the mochi still be there at 2pm?</div><div class="a">Reviewers say no. The site does not say so, the operator could turn this complaint into urgency by surfacing it.</div></div>
+  </div>
+
+  <div class="card">
+    <span class="section-label">Signal 2, Comp parity</span>
+    <h2>Where you stack up against Lokoea Farms and Dole Plantation</h2>
+    <div class="parity">
+      <div class="parity-col">
+        <h3>Themes you own</h3>
+        <div class="parity-item">4-generation Matsuda-Fukuyama family story.<span class="source">Shows up in 14 of 20 of your reviews. Dole Plantation reviewers say "tourist trap" and "giant gift shop." Lokoea has 0 TripAdvisor reviews on its main listing.</span></div>
+        <div class="parity-item">Tractor-wagon tasting format.<span class="source">12 of 20 of your reviews. Lokoea is a walking tour, no wagon. Dole has the Pineapple Express train, reviewed as "45 minute lines, not worth it."</span></div>
+        <div class="parity-item">Same-property cafe with named menu items.<span class="source">10 of 20 of your reviews call out specific items. Lokoea has no cafe. Dole has commodity food.</span></div>
+        <div class="parity-item">"Better than Dole" is in your reviews, unprompted.<span class="source">JulieMeagan and others use Dole as the contrast point. Free positioning.</span></div>
+      </div>
+      <div class="parity-col">
+        <h3>Themes they own that you don't</h3>
+        <div class="parity-item">Tour duration stated up front.<span class="source">Lokoea via Viator: "2h." Kahuku Farms tour page: blank.</span></div>
+        <div class="parity-item">Published cancellation and weather policy.<span class="source">Lokoea via Viator publishes a full-refund clause for weather and minimum-traveler shortfalls. Kahuku Farms does not surface this on the tour page.</span></div>
+        <div class="parity-item">Multi-platform OTA distribution.<span class="source">Lokoea is on Viator, Airbnb Experiences, GetYourGuide. Kahuku Farms is FareHarbor-direct only with stale OTA listings. Comp wins on cruise-pax discoverability.</span></div>
+        <div class="parity-item">Volume default for the trip slot.<span class="source">Dole Plantation has 6,671 TripAdvisor reviews at 3.6 of 5. Kahuku Farms has 505 at 4.8. You win on quality, you lose on visibility, and the booking page does not surface the contrast.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card featured">
+    <span class="section-label">Signal 3, CRO fixes</span>
+    <h2>Three fixes, ranked</h2>
+
+    <div class="fix">
+      <div class="num">1</div>
+      <div>
+        <div class="what">Add a one-liner above the FareHarbor button: "About 90 minutes. Tractor wagon ride, two tasting stops, ends at the cafe."</div>
+        <div class="where">Tours page (kahukufarms.com/pages/tours), directly above the FareHarbor embed.</div>
+        <div class="pills"><span class="pill">Impact: High</span><span class="pill">Effort: Low</span></div>
+        <div class="evidence">"The 1.75 hour farm tour with tastings of fruits grown there and chocolates made from their cacao trees was exceptional."<span class="attr">A B, TripAdvisor, Feb 2026. Plus comp gap, Lokoea publishes "2h" on Viator, Kahuku Farms publishes nothing.</span></div>
+      </div>
+    </div>
+
+    <div class="fix">
+      <div class="num">2</div>
+      <div>
+        <div class="what">Add a weather and refund line beside the Book button: "Tours run rain or shine. Free reschedule up to 48 hours before. Full refund if we cancel for weather or if minimums aren't met."</div>
+        <div class="where">Tours page, in a small block immediately right of the FareHarbor button on desktop, directly below it on mobile.</div>
+        <div class="pills"><span class="pill">Impact: High</span><span class="pill">Effort: Low</span></div>
+        <div class="evidence">Comp gap. Lokoea Farms via Viator publishes: "weather-related cancellations offer a different date or full refund, and if minimum traveler requirements aren't met, customers receive a different date / experience or full refund." Kahuku Farms hides this in a footer policy link.<span class="attr">Source, Lokoea Viator product page, 2026.</span></div>
+      </div>
+    </div>
+
+    <div class="fix">
+      <div class="num">3</div>
+      <div>
+        <div class="what">Turn the cafe sell-out into a "Plan your visit" strip with a Square pre-order CTA: "Mochi and banana bread sell out by 1pm. Pre-order online to hold yours."</div>
+        <div class="where">Homepage cafe section and Tours page sidebar. Reuse existing Square online order flow, no new tech.</div>
+        <div class="pills"><span class="pill">Impact: Medium</span><span class="pill">Effort: Low</span></div>
+        <div class="evidence">"Do remember to get there early to be able to experience the mochi before it sells out."<span class="attr">Alex D., Hayward CA, on-site testimonial. Reviewers already warn each other. Owning it converts a quiet complaint into urgency and lifts pre-orders.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Built with the Hospitality Business Skills teammate, Powered by <a href="https://lightson.co">Lights On</a>, github.com/lightson-digital/hospitality-business-skills</div>
+</body>
+</html>
